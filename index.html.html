@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henry & Irma | White Family Reunion 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a3d1f;
+    --green-mid: #2d6a35;
+    --green-fresh: #4a8c54;
+    --green-light: #7ab682;
+    --green-pale: #c8e6cb;
+    --green-mist: #eef6ef;
+    --cream: #faf8f3;
+    --parchment: #f2ede3;
+    --white: #ffffff;
+    --text-dark: #1c2b1e;
+    --text-mid: #3d5c42;
+    --text-muted: #6b8c70;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--text-dark); font-weight: 300; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(26, 61, 31, 0.93);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(122, 182, 130, 0.2);
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--green-pale); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-logo span { font-style: italic; color: var(--green-light); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .nav-links a { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-pale); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--green-deep); }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(74,140,84,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 30%, rgba(45,106,53,0.22) 0%, transparent 55%),
+                linear-gradient(160deg, #0d2410 0%, #1a3d1f 40%, #23532a 100%);
+  }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 2rem; max-width: 780px; animation: fadeUp 1.2s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+  .hero-eyebrow { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1.5rem; animation: fadeUp 1.2s 0.1s ease both; }
+  .hero-names { font-family: var(--serif); font-size: clamp(4rem,10vw,7.5rem); font-weight: 300; line-height: 0.9; color: var(--white); letter-spacing: -0.01em; margin-bottom: 0.4rem; animation: fadeUp 1.2s 0.2s ease both; }
+  .hero-names em { font-style: italic; color: var(--green-light); display: block; }
+  .hero-amp { display: block; font-size: 0.55em; color: var(--green-fresh); font-style: normal; margin: 0.1em 0; }
+  .hero-subtitle { font-family: var(--serif); font-size: clamp(1.1rem,2.5vw,1.5rem); font-weight: 300; font-style: italic; color: var(--green-pale); margin-bottom: 0.6rem; letter-spacing: 0.03em; animation: fadeUp 1.2s 0.3s ease both; }
+  .hero-tagline { font-family: var(--sans); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); opacity: 0.8; margin-bottom: 3rem; animation: fadeUp 1.2s 0.35s ease both; }
+  .hero-date-card { display: inline-flex; align-items: center; gap: 1.5rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(122,182,130,0.3); border-radius: 2px; padding: 1rem 2.5rem; margin-bottom: 2.5rem; animation: fadeUp 1.2s 0.45s ease both; }
+  .hero-date-part { text-align: center; }
+  .hero-date-part .label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); display: block; margin-bottom: 0.2rem; }
+  .hero-date-part .value { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--white); }
+  .hero-divider { width: 1px; height: 36px; background: rgba(122,182,130,0.3); }
+  .hero-cta { display: inline-flex; gap: 1rem; animation: fadeUp 1.2s 0.55s ease both; }
+  .btn-primary { font-family: var(--sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2rem; background: var(--green-fresh); color: var(--white); border: none; border-radius: 1px; cursor: pointer; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+  .btn-outline { font-family: var(--sans); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2rem; background: transparent; color: var(--green-pale); border: 1px solid rgba(200,230,203,0.4); border-radius: 1px; cursor: pointer; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--green-light); color: var(--white); }
+  .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--green-light); opacity: 0.6; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; animation: fadeUp 1.2s 0.8s ease both; }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--green-light), transparent); animation: scrollPulse 2s ease infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:0.4;} 50%{opacity:0.9;} }
+
+  /* SECTION SHELL */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-fresh); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::after { content:''; flex:1; max-width:3rem; height:1px; background:var(--green-light); opacity:0.5; }
+  .section-title { font-family: var(--serif); font-size: clamp(2rem,4vw,3rem); font-weight: 300; color: var(--green-deep); line-height: 1.1; margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; color: var(--green-mid); }
+  .section-body { font-size: 1.05rem; line-height: 1.85; color: var(--text-mid); max-width: 640px; }
+
+  /* STORY */
+  .story { background: var(--white); }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .story-frame { width:100%; aspect-ratio:3/4; background: linear-gradient(135deg, var(--green-mist) 0%, var(--green-pale) 100%); border-radius:2px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+  .story-frame-inner { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:2rem; background:linear-gradient(to top, rgba(26,61,31,0.6) 0%, transparent 60%); }
+  .magnolia-svg-wrap { position:absolute; top:0; left:0; right:0; bottom:40%; display:flex; align-items:center; justify-content:center; }
+  .story-caption { font-family:var(--serif); font-size:1rem; font-style:italic; color:var(--white); text-align:center; line-height:1.5; position:relative; z-index:1; }
+  .story-accent { position:absolute; top:-1.5rem; left:-1.5rem; width:60%; height:60%; border:1px solid var(--green-pale); border-radius:2px; z-index:-1; }
+  .story-visual { position:relative; }
+  .story-quote { font-family:var(--serif); font-size:1.5rem; font-weight:300; font-style:italic; color:var(--green-mid); line-height:1.5; border-left:3px solid var(--green-light); padding-left:1.5rem; margin:2rem 0; }
+  .story-detail { display:flex; gap:2rem; margin-top:2rem; padding-top:2rem; border-top:1px solid var(--green-mist); }
+  .story-stat .num { font-family:var(--serif); font-size:2.5rem; font-weight:300; color:var(--green-deep); display:block; line-height:1; }
+  .story-stat .lbl { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:0.3rem; display:block; }
+
+  /* REUNION INFO */
+  .info { background: var(--green-mist); }
+  .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+  .info-card { background:var(--white); padding:2rem; border-radius:2px; border-left:3px solid var(--green-fresh); transition:transform 0.2s, box-shadow 0.2s; }
+  .info-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(26,61,31,0.08); }
+  .info-card-icon { font-size:1.5rem; margin-bottom:1rem; display:block; }
+  .info-card-title { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--green-deep); margin-bottom:0.5rem; }
+  .info-card-body { font-size:0.9rem; line-height:1.7; color:var(--text-muted); }
+
+  /* LODGING */
+  .lodging { background: var(--white); }
+  .lodging-intro { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-bottom:2rem; }
+  .map-embed { border-radius:2px; overflow:hidden; border:1px solid var(--green-pale); }
+  .map-embed iframe { display:block; width:100%; height:380px; border:none; }
+  .lodging-list { display:flex; flex-direction:column; }
+  .lodging-item { display:grid; grid-template-columns:auto 1fr auto; gap:1rem; align-items:center; padding:1.1rem 0.5rem; border-bottom:1px solid var(--green-mist); text-decoration:none; transition:background 0.15s, padding-left 0.15s; }
+  .lodging-item:hover { background:var(--green-mist); padding-left:1rem; border-radius:2px; }
+  .lodging-num { font-family:var(--serif); font-size:0.85rem; color:var(--text-muted); min-width:1.5rem; }
+  .lodging-name { font-size:0.95rem; font-weight:400; color:var(--text-dark); }
+  .lodging-sub { font-size:0.78rem; color:var(--text-muted); margin-top:0.15rem; }
+  .lodging-price { font-family:var(--serif); font-size:1rem; color:var(--green-mid); white-space:nowrap; font-weight:600; text-align:right; }
+  .lodging-badge { font-size:0.62rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; background:var(--green-mist); color:var(--green-mid); padding:0.2rem 0.5rem; border-radius:2px; margin-left:0.5rem; }
+  .lodging-badge.best { background:#fff8e1; color:#8b6914; }
+  .airbnb-note { background:var(--green-mist); border-left:3px solid var(--green-light); padding:1.25rem 1.5rem; border-radius:2px; margin-top:2rem; }
+  .airbnb-note p { font-size:0.9rem; line-height:1.75; color:var(--text-mid); }
+  .airbnb-note a { color:var(--green-mid); }
+  .airbnb-links { display:flex; gap:0.75rem; margin-top:0.75rem; flex-wrap:wrap; }
+
+  /* NEIGHBORHOOD */
+  .neighborhood { background:var(--green-deep); color:var(--white); }
+  .neighborhood .section-title { color:var(--white); }
+  .neighborhood .section-title em { color:var(--green-light); }
+  .neighborhood .section-label { color:var(--green-light); }
+  .neighborhood .section-body { color:rgba(255,255,255,0.75); }
+  .neighborhood-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+  .nb-card { padding:1.75rem; background:rgba(255,255,255,0.04); border:1px solid rgba(122,182,130,0.2); border-radius:2px; transition:background 0.2s; }
+  .nb-card:hover { background:rgba(255,255,255,0.07); }
+  .nb-card-tag { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-light); margin-bottom:0.75rem; display:block; }
+  .nb-card-title { font-family:var(--serif); font-size:1.15rem; font-weight:400; color:var(--white); margin-bottom:0.5rem; }
+  .nb-card-body { font-size:0.85rem; line-height:1.7; color:rgba(255,255,255,0.6); }
+
+  /* MAPS SECTION */
+  .maps { background: var(--parchment); }
+  .maps-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2.5rem; }
+  .map-card { background:var(--white); border-radius:2px; overflow:hidden; border:1px solid var(--green-pale); }
+  .map-card-header { padding:1.25rem 1.5rem; border-bottom:1px solid var(--green-mist); }
+  .map-card-tag { font-size:0.62rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-fresh); margin-bottom:0.3rem; display:block; }
+  .map-card-title { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--green-deep); }
+  .map-card-body { font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem; line-height:1.5; }
+  .map-card iframe { display:block; width:100%; height:320px; border:none; }
+  .coming-soon-map { height:320px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem; background:var(--green-mist); }
+  .coming-soon-map .cs-label { font-family:var(--serif); font-size:1rem; font-style:italic; color:var(--green-mid); }
+  .coming-soon-map .cs-sub { font-size:0.78rem; color:var(--text-muted); text-align:center; max-width:200px; line-height:1.5; }
+
+  /* EVENTS */
+  .events { background:var(--white); }
+  .events-timeline { margin-top:3rem; display:flex; flex-direction:column; position:relative; }
+  .events-timeline::before { content:''; position:absolute; left:5.5rem; top:0; bottom:0; width:1px; background:var(--green-pale); }
+  .event-item { display:grid; grid-template-columns:7rem 1fr; gap:2rem; padding:1.5rem 0; }
+  .event-date { text-align:right; padding-right:2rem; position:relative; }
+  .event-date::after { content:''; position:absolute; right:-0.3rem; top:50%; transform:translateY(-50%); width:9px; height:9px; border-radius:50%; background:var(--green-fresh); border:2px solid var(--white); box-shadow:0 0 0 1px var(--green-fresh); z-index:1; }
+  .event-date .day { font-family:var(--serif); font-size:1.4rem; font-weight:300; color:var(--green-deep); display:block; line-height:1; }
+  .event-date .month { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+  .event-title { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--green-deep); margin-bottom:0.3rem; }
+  .event-body { font-size:0.88rem; line-height:1.7; color:var(--text-muted); margin-bottom:0.75rem; }
+  .interest-btn { font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:0.4rem 0.9rem; border-radius:2px; cursor:pointer; transition:all 0.15s; border:1px solid var(--green-light); background:transparent; color:var(--green-mid); font-family:var(--sans); }
+  .interest-btn:hover { background:var(--green-mist); }
+  .interest-btn.active { background:var(--green-fresh); color:var(--white); border-color:var(--green-fresh); }
+  .interest-count { font-size:0.8rem; color:var(--text-muted); }
+
+  /* POLLS */
+  .polls { background:var(--green-mist); }
+  .poll-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+  .poll-card { background:var(--white); padding:1.75rem; border-radius:2px; }
+  .poll-question { font-family:var(--serif); font-size:1.05rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; line-height:1.4; }
+  .poll-option { margin-bottom:0.5rem; }
+  .poll-option-row { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.3rem; cursor:pointer; }
+  .poll-option-row input { width:auto; accent-color:var(--green-fresh); cursor:pointer; }
+  .poll-option-label { font-size:0.9rem; color:var(--text-mid); cursor:pointer; }
+  .poll-bar-wrap { height:4px; background:var(--green-mist); border-radius:2px; margin-left:1.5rem; overflow:hidden; }
+  .poll-bar { height:100%; background:var(--green-fresh); border-radius:2px; }
+
+  /* STORIES */
+  .stories { background:var(--white); }
+  .story-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+  .story-card { border-radius:2px; overflow:hidden; border:1px solid var(--green-mist); transition:transform 0.2s, box-shadow 0.2s; text-decoration:none; display:block; }
+  .story-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(26,61,31,0.1); }
+  .story-card-img { height:180px; background:linear-gradient(135deg,var(--green-pale),var(--green-mist)); display:flex; align-items:center; justify-content:center; }
+  .story-card-img-label { font-family:var(--serif); font-size:2.5rem; color:var(--green-deep); opacity:0.2; font-style:italic; }
+  .story-card-body { padding:1.25rem; }
+  .story-card-tag { font-size:0.62rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--green-fresh); margin-bottom:0.5rem; display:block; }
+  .story-card-title { font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--green-deep); line-height:1.3; margin-bottom:0.5rem; }
+  .story-card-excerpt { font-size:0.82rem; line-height:1.65; color:var(--text-muted); }
+  .story-card-footer { padding:0.75rem 1.25rem; border-top:1px solid var(--green-mist); font-size:0.72rem; color:var(--text-muted); display:flex; justify-content:space-between; }
+
+  /* RSVP */
+  .rsvp { background:var(--parchment); }
+  .rsvp-inner { max-width:720px; margin:0 auto; }
+  .form-card { background:var(--white); border:1px solid rgba(90,140,90,0.15); border-radius:2px; padding:2rem; margin-top:2rem; }
+  .form-card h3 { font-family:var(--serif); font-size:1.15rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; }
+  .attendee-rows { display:flex; flex-direction:column; gap:8px; margin-bottom:1rem; }
+  .attendee-row { display:grid; grid-template-columns:1fr 1fr auto; gap:8px; align-items:center; }
+  .attendee-row input { font-size:0.9rem; padding:0.65rem 0.85rem; border:1px solid rgba(90,140,90,0.25); border-radius:2px; background:var(--white); color:var(--text-dark); width:100%; outline:none; transition:border-color 0.15s; font-family:var(--sans); }
+  .attendee-row input:focus { border-color:var(--green-fresh); }
+  .remove-btn { width:28px; height:28px; border-radius:50%; border:1px solid rgba(90,140,90,0.2); background:transparent; cursor:pointer; color:var(--text-muted); font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.15s; }
+  .remove-btn:hover { background:#fdf0f0; color:#c03030; border-color:#f0b0b0; }
+  .add-person-btn { font-size:0.78rem; color:var(--green-mid); background:none; border:none; cursor:pointer; padding:0; text-decoration:underline; text-underline-offset:3px; margin-bottom:1.25rem; display:block; font-family:var(--sans); }
+  .status-row { display:flex; gap:8px; margin-bottom:1.5rem; flex-wrap:wrap; }
+  .status-opt { display:none; }
+  .status-label { font-size:0.75rem; font-weight:500; letter-spacing:0.08em; padding:7px 16px; border-radius:2px; cursor:pointer; border:1px solid rgba(90,140,90,0.3); color:var(--text-muted); transition:all 0.15s; user-select:none; font-family:var(--sans); }
+  .status-opt:checked + .status-label { color:white; border-color:transparent; }
+  #s-coming:checked + .status-label { background:var(--green-fresh); }
+  #s-maybe:checked + .status-label { background:#b07d12; }
+  #s-cant:checked + .status-label { background:#7a7a8a; }
+  .submit-btn { width:100%; padding:0.9rem; font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; background:var(--green-fresh); color:white; border:none; border-radius:1px; cursor:pointer; transition:background 0.15s; font-family:var(--sans); }
+  .submit-btn:hover { background:var(--green-mid); }
+  .success-msg { display:none; text-align:center; padding:1.5rem; font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--green-mid); }
+  .wall-header { display:flex; align-items:baseline; justify-content:space-between; margin:2rem 0 1rem; flex-wrap:wrap; gap:8px; }
+  .counts-bar { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:1.5rem; }
+  .count-pill { padding:1rem; border-radius:2px; text-align:center; }
+  .count-pill .num { font-family:var(--serif); font-size:2rem; font-weight:300; display:block; line-height:1; }
+  .count-pill .lbl { font-size:0.65rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; margin-top:4px; display:block; }
+  .pill-coming { background:var(--green-mist); }
+  .pill-coming .num { color:var(--green-deep); } .pill-coming .lbl { color:var(--green-mid); }
+  .pill-maybe { background:#fef9ed; }
+  .pill-maybe .num { color:#7a5500; } .pill-maybe .lbl { color:#a07010; }
+  .pill-cant { background:#f4f4f6; }
+  .pill-cant .num { color:#555565; } .pill-cant .lbl { color:#777788; }
+  .admin-bar { background:var(--green-mist); border:1px solid rgba(90,140,90,0.2); border-radius:2px; padding:0.75rem 1rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .admin-bar label { font-size:0.72rem; color:var(--text-muted); }
+  .admin-bar input[type=password] { font-size:0.85rem; padding:5px 10px; flex:1; min-width:120px; border:1px solid rgba(90,140,90,0.25); border-radius:2px; background:var(--white); color:var(--text-dark); outline:none; font-family:var(--sans); }
+  .admin-bar button { font-size:0.7rem; font-weight:500; letter-spacing:0.08em; padding:5px 12px; border-radius:2px; background:var(--white); border:1px solid rgba(90,140,90,0.3); color:var(--text-muted); cursor:pointer; transition:all 0.12s; font-family:var(--sans); }
+  .admin-bar button:hover { border-color:var(--green-fresh); color:var(--green-mid); }
+  .admin-note { font-size:0.7rem; color:var(--text-muted); font-style:italic; }
+  .wall-section { margin-bottom:1.5rem; }
+  .wall-section-title { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:8px; border-bottom:1px solid var(--green-pale); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .wall-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .dot-coming { background:var(--green-fresh); }
+  .dot-maybe { background:#c9940a; }
+  .dot-cant { background:#aaaabc; }
+  .name-grid { display:flex; flex-wrap:wrap; gap:6px; }
+  .name-chip { display:flex; align-items:center; gap:5px; background:var(--green-mist); border:1px solid rgba(90,140,90,0.2); border-radius:20px; padding:5px 14px; font-size:0.82rem; color:var(--text-dark); }
+  .name-chip.coming { border-color:var(--green-pale); }
+  .name-chip.maybe { background:#fef9ed; border-color:#f0d080; color:#7a5500; }
+  .name-chip.cant { background:var(--white); border-color:#d8d8e8; font-style:italic; color:var(--text-muted); }
+  .delete-x { display:none; background:none; border:none; cursor:pointer; color:var(--text-muted); font-size:14px; line-height:1; padding:0 0 0 2px; transition:color 0.12s; }
+  .delete-x:hover { color:#c03030; }
+  .admin-mode .delete-x { display:inline; }
+  .empty-state { font-size:0.82rem; color:var(--text-muted); font-style:italic; }
+  .rsvp-note { font-family:var(--serif); font-style:italic; font-size:0.9rem; color:var(--text-muted); margin-top:1rem; text-align:center; }
+
+  /* BULLETIN */
+  .bulletin { background:var(--green-mist); }
+  .board-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:2rem; gap:2rem; }
+  .board-posts { display:flex; flex-direction:column; gap:1rem; }
+  .board-post { background:var(--white); padding:1.5rem; border-radius:2px; border-left:3px solid var(--green-light); }
+  .board-post-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; }
+  .board-avatar { width:36px; height:36px; border-radius:50%; background:var(--green-pale); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:0.85rem; color:var(--green-deep); font-weight:600; flex-shrink:0; }
+  .board-post-meta .name { font-weight:500; font-size:0.9rem; color:var(--text-dark); }
+  .board-post-meta .date { font-size:0.75rem; color:var(--text-muted); }
+  .board-post-tag { margin-left:auto; font-size:0.62rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:2px; background:#fff8e1; color:#8b6914; }
+  .board-post-body { font-size:0.9rem; line-height:1.65; color:var(--text-mid); }
+  .board-new-post { margin-top:1.5rem; background:var(--white); padding:1.5rem; border-radius:2px; border:1px dashed rgba(90,140,90,0.3); }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+  .form-group { display:flex; flex-direction:column; gap:0.4rem; }
+  .form-group.full { grid-column:1/-1; }
+  label { font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); }
+  input:not(.attendee-row input):not(.admin-bar input), select, textarea { font-family:var(--sans); font-size:0.95rem; font-weight:300; padding:0.75rem 1rem; border:1px solid rgba(90,140,90,0.25); border-radius:2px; background:var(--white); color:var(--text-dark); outline:none; transition:border-color 0.2s; width:100%; }
+  input:not(.attendee-row input):not(.admin-bar input):focus, select:focus, textarea:focus { border-color:var(--green-fresh); }
+  textarea { resize:vertical; min-height:100px; }
+
+  /* FOOTER */
+  footer { background:var(--green-deep); color:var(--green-pale); padding:4rem 3rem 2rem; text-align:center; }
+  .footer-logo { font-family:var(--serif); font-size:2rem; font-weight:300; font-style:italic; color:var(--white); margin-bottom:0.5rem; }
+  .footer-tagline { font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-light); margin-bottom:2rem; opacity:0.7; }
+  .footer-nav { display:flex; gap:1.5rem; justify-content:center; list-style:none; margin-bottom:3rem; flex-wrap:wrap; }
+  .footer-nav a { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--green-pale); text-decoration:none; opacity:0.6; transition:opacity 0.2s; }
+  .footer-nav a:hover { opacity:1; }
+  .footer-divider { height:1px; background:rgba(200,230,203,0.1); margin-bottom:1.5rem; }
+  .footer-copy { font-size:0.75rem; color:rgba(200,230,203,0.4); }
+
+  /* RESPONSIVE */
+  @media (max-width:900px) {
+    nav { padding:1rem 1.5rem; }
+    .nav-links { gap:0.75rem; }
+    section { padding:4rem 1.5rem; }
+    .story-grid, .info-grid, .neighborhood-grid, .lodging-intro, .poll-grid, .story-cards, .maps-grid { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .hero-date-card { flex-direction:column; gap:0.5rem; }
+    .hero-divider { width:40px; height:1px; }
+    .events-timeline::before { display:none; }
+    .event-item { grid-template-columns:1fr; }
+    .event-date { text-align:left; padding-right:0; }
+    .event-date::after { display:none; }
+    .board-header { flex-direction:column; }
+    .counts-bar { grid-template-columns:repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Henry <span>&</span> Irma</a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#reunion">Reunion</a></li>
+    <li><a href="#lodging">Lodging</a></li>
+    <li><a href="#maps">Explore</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#stories">Family Stories</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#bulletin">Board</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">White Family Reunion 2026 &nbsp;·&nbsp; Upper Montclair, New Jersey</p>
+    <h1 class="hero-names">
+      Henry
+      <span class="hero-amp">&amp;</span>
+      <em>Irma</em>
+    </h1>
+    <p class="hero-subtitle">In their honor, in their spirit, gathered together again</p>
+    <p class="hero-tagline">Reconnect &nbsp;·&nbsp; Celebrate &nbsp;·&nbsp; Remember</p>
+    <div class="hero-date-card">
+      <div class="hero-date-part">
+        <span class="label">Date</span>
+        <span class="value">Saturday, June 6</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-date-part">
+        <span class="label">Time</span>
+        <span class="value">10:00 AM</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-date-part">
+        <span class="label">Location</span>
+        <span class="value">Montclair, NJ</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#rsvp" class="btn-primary">Reserve Your Spot</a>
+      <a href="#story" class="btn-outline">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-line"></span>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-visual">
+        <div class="story-accent"></div>
+        <div class="story-frame">
+          <div class="magnolia-svg-wrap" aria-hidden="true">
+            <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="110" cy="160" rx="12" ry="80" fill="#4a8c54" opacity="0.6" transform="rotate(-10 110 160)"/>
+              <ellipse cx="110" cy="160" rx="12" ry="80" fill="#2d6a35" opacity="0.5" transform="rotate(15 110 160)"/>
+              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.95" transform="rotate(-20 110 110)"/>
+              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.90" transform="rotate(20 110 110)"/>
+              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.88" transform="rotate(60 110 110)"/>
+              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.85" transform="rotate(100 110 110)"/>
+              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.82" transform="rotate(140 110 110)"/>
+              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.80" transform="rotate(180 110 110)"/>
+              <circle cx="110" cy="110" r="14" fill="#f9f0d8" opacity="0.98"/>
+              <circle cx="110" cy="110" r="7" fill="#e8c97a" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="story-frame-inner">
+            <p class="story-caption">Magnolia grandiflora —<br>Irma's favorite, grown in Cape May</p>
+          </div>
+        </div>
+      </div>
+      <div class="story-text">
+        <p class="section-label">Our Roots</p>
+        <h2 class="section-title">Henry &amp; <em>Irma</em><br>White</h2>
+        <p class="section-body">Our grandparents Henry and Irma White started what has become our most beloved family tradition — an annual gathering that has brought cousins, children, and grandchildren together across the decades.</p>
+        <blockquote class="story-quote">"Family is not an important thing. It's everything."</blockquote>
+        <p class="section-body">Irma was born in <strong>Paterson, New Jersey</strong> — just miles from where we gather. Her family's roots run deep in this community, and this reunion is a chance to walk in her footsteps, visit places that shaped her, and carry those stories forward.</p>
+        <div class="story-detail">
+          <div class="story-stat"><span class="num">Annual</span><span class="lbl">Tradition</span></div>
+          <div class="story-stat"><span class="num">Paterson</span><span class="lbl">Irma's Birthplace</span></div>
+          <div class="story-stat"><span class="num">Cape May</span><span class="lbl">Family Home</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REUNION INFO -->
+<section class="info" id="reunion">
+  <div class="section-inner">
+    <p class="section-label">The Gathering</p>
+    <h2 class="section-title">What to <em>Expect</em></h2>
+    <p class="section-body">Join Roberta and Luis at their home in Upper Montclair — just 12 miles west of New York City — for a day of food, laughter, lawn games, and memories.</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-card-icon">🏡</span>
+        <h3 class="info-card-title">The Setting</h3>
+        <p class="info-card-body">410 Grove Street, Upper Montclair, NJ. A big front porch, backyard patio, and a grill — the perfect backdrop for a summer reunion. Rain or shine.</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">🍖</span>
+        <h3 class="info-card-title">Food &amp; Drink</h3>
+        <p class="info-card-body">Luis mans the grill starting at 10am. Food and drinks flowing all day. Tell us your favorites in the polls below!</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">🎯</span>
+        <h3 class="info-card-title">Lawn Games</h3>
+        <p class="info-card-body">Horseshoes, bocce, and croquet on the back lawn. Bring your competitive spirit — or just your lawn chair.</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">✈️</span>
+        <h3 class="info-card-title">Getting Here</h3>
+        <p class="info-card-body">Easy access from Newark Airport and Newark Penn Station (Amtrak). We're happy to help arrange pickups. Parking available on-site and nearby.</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">📅</span>
+        <h3 class="info-card-title">The Weekend</h3>
+        <p class="info-card-body">Optional before and after events are being planned — a Friday dinner and Sunday Paterson walking tour. Check the Events section and let us know your interest!</p>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">⚽</span>
+        <h3 class="info-card-title">World Cup Note</h3>
+        <p class="info-card-body">The FIFA World Cup begins June 13 at nearby MetLife Stadium. Book lodging early — prices and availability will tighten significantly as that date approaches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LODGING -->
+<section class="lodging" id="lodging">
+  <div class="section-inner">
+    <p class="section-label">Where to Stay</p>
+    <h2 class="section-title">Lodging <em>Options</em></h2>
+    <p class="section-body">We've researched the best nearby hotels across a range of budgets, with June 6 prices. Honestly, World Cup proximity is pushing rates up — the Best Western in Fairfield at $140 is a genuine standout. Book soon!</p>
+
+    <div class="lodging-intro" style="margin-top:2.5rem;">
+      <div>
+        <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">In Montclair &amp; West Orange — Closest to the Reunion</p>
+        <div class="lodging-list" style="margin-bottom:1.5rem;">
+          <div class="lodging-item">
+            <span class="lodging-num">1</span>
+            <div>
+              <div class="lodging-name">The George — Montclair <span style="font-size:0.7rem;color:var(--text-muted);">0.7 mi</span></div>
+              <div class="lodging-sub">Boutique inn · Free breakfast · Wine hour · Candy closet · Walk to downtown</div>
+            </div>
+            <div><div class="lodging-price">$400–500</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">2</span>
+            <div>
+              <div class="lodging-name">The MC Hotel, Autograph Collection — Montclair <span style="font-size:0.7rem;color:var(--text-muted);">0.8 mi</span></div>
+              <div class="lodging-sub">Marriott 4-star · Rooftop bar with NYC views · Restaurant · Bonvoy points</div>
+            </div>
+            <div><div class="lodging-price">~$450</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">3</span>
+            <div>
+              <div class="lodging-name">Residence Inn by Marriott — West Orange <span style="font-size:0.7rem;color:var(--text-muted);">2.5 mi</span></div>
+              <div class="lodging-sub">All-suite · Full kitchens · Free breakfast · Saltwater pool · Free parking</div>
+            </div>
+            <div><div class="lodging-price">~$400</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">4</span>
+            <div>
+              <div class="lodging-name">The Wilshire Grand Hotel — West Orange <span style="font-size:0.7rem;color:var(--text-muted);">3 mi</span></div>
+              <div class="lodging-sub">3-star · Free breakfast · Italian restaurant · Free parking · Pet friendly</div>
+            </div>
+            <div><div class="lodging-price">~$240</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">Fairfield &amp; Wayne — Good Value, ~7–11 Miles</p>
+        <div class="lodging-list" style="margin-bottom:1.5rem;">
+          <div class="lodging-item">
+            <span class="lodging-num">5</span>
+            <div>
+              <div class="lodging-name">Hampton Inn &amp; Suites — Fairfield <span style="font-size:0.7rem;color:var(--text-muted);">7 mi</span></div>
+              <div class="lodging-sub">4.5★ rated · Free breakfast · Calandra's Italian restaurant · Free parking</div>
+            </div>
+            <div><div class="lodging-price">~$410</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item" style="border-left:3px solid #e8a800;padding-left:0.5rem;margin-left:-0.5rem;">
+            <span class="lodging-num">6</span>
+            <div>
+              <div class="lodging-name">Best Western Plus Fairfield Exec Inn <span style="font-size:0.7rem;color:var(--text-muted);">7 mi</span> <span class="lodging-badge best">Best Value</span></div>
+              <div class="lodging-sub">Free omelet breakfast · Indoor pool &amp; Jacuzzi · Calandra's restaurant · Free parking</div>
+            </div>
+            <div><div class="lodging-price" style="color:#8b6914;">~$140</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">7</span>
+            <div>
+              <div class="lodging-name">Red Roof Inn — Fairfield <span style="font-size:0.7rem;color:var(--text-muted);">7 mi</span></div>
+              <div class="lodging-sub">Budget option · Renovated 2021 · Fitness center · Italian restaurant on-site · Free parking · Pet friendly (1st pet free)</div>
+            </div>
+            <div><div class="lodging-price">~$105–160</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">8</span>
+            <div>
+              <div class="lodging-name">Hilton Garden Inn — Wayne <span style="font-size:0.7rem;color:var(--text-muted);">11 mi</span></div>
+              <div class="lodging-sub">#1 rated in Wayne · Newly renovated · Indoor pool &amp; hot tub · On-site restaurant · Free parking</div>
+            </div>
+            <div><div class="lodging-price">~$232</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">Paramus &amp; Kenilworth — Further Out, Strong Value</p>
+        <div class="lodging-list" style="margin-bottom:1.5rem;">
+          <div class="lodging-item">
+            <span class="lodging-num">9</span>
+            <div>
+              <div class="lodging-name">Comfort Inn Paramus — Hackensack <span style="font-size:0.7rem;color:var(--text-muted);">~14 mi</span></div>
+              <div class="lodging-sub">Free breakfast buffet · Free parking · Near Garden State Plaza Mall · Good highway access</div>
+            </div>
+            <div><div class="lodging-price">~$120–160</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">10</span>
+            <div>
+              <div class="lodging-name">The Kenilworth Hotel — Airport West <span style="font-size:0.7rem;color:var(--text-muted);">~16 mi</span></div>
+              <div class="lodging-sub">Boutique hotel · Free breakfast · Free airport shuttle to Newark · Free parking · Rated #1 in Kenilworth</div>
+            </div>
+            <div><div class="lodging-price">~$110–150</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">Parsippany, Whippany &amp; Morris Plains — Extended-Stay &amp; Full-Service, ~20–25 Miles</p>
+        <div class="lodging-list" style="margin-bottom:1.5rem;">
+          <div class="lodging-item">
+            <span class="lodging-num">11</span>
+            <div>
+              <div class="lodging-name">Hyatt House Parsippany East <span style="font-size:0.7rem;color:var(--text-muted);">~22 mi</span></div>
+              <div class="lodging-sub">Kitchenettes · Free breakfast buffet · Outdoor pool · Bar · Hyatt points accepted</div>
+            </div>
+            <div><div class="lodging-price">~$109–130</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">12</span>
+            <div>
+              <div class="lodging-name">Sheraton Parsippany Hotel <span style="font-size:0.7rem;color:var(--text-muted);">~22 mi</span></div>
+              <div class="lodging-sub">Castle-themed 4-star · 370 rooms · Indoor &amp; outdoor pools · Spa · Full-service health club · Bonvoy points</div>
+            </div>
+            <div><div class="lodging-price">~$120–145</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">13</span>
+            <div>
+              <div class="lodging-name">Embassy Suites — Parsippany <span style="font-size:0.7rem;color:var(--text-muted);">~22 mi</span></div>
+              <div class="lodging-sub">All-suite · Lush atrium · Free breakfast &amp; evening reception · Indoor pool · Hilton Honors points</div>
+            </div>
+            <div><div class="lodging-price">~$97–140</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">14</span>
+            <div>
+              <div class="lodging-name">Sonesta Select Whippany Hanover <span style="font-size:0.7rem;color:var(--text-muted);">~23 mi</span></div>
+              <div class="lodging-sub">149 rooms · Garden &amp; firepit · On-site bar &amp; breakfast · Fitness center · Free parking</div>
+            </div>
+            <div><div class="lodging-price">~$100–140</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">15</span>
+            <div>
+              <div class="lodging-name">Sonesta Simply Suites — Morris Plains <span style="font-size:0.7rem;color:var(--text-muted);">~24 mi</span></div>
+              <div class="lodging-sub">Extended-stay suites · Full kitchens · Fitness center · Free parking · Very budget-friendly</div>
+            </div>
+            <div><div class="lodging-price">~$80–110</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">Newark Airport — For Fly-In Guests, ~15 Miles</p>
+        <div class="lodging-list" style="margin-bottom:0.5rem;">
+          <div class="lodging-item">
+            <span class="lodging-num">16</span>
+            <div>
+              <div class="lodging-name">Holiday Inn Newark International Airport <span style="font-size:0.7rem;color:var(--text-muted);">~15 mi</span></div>
+              <div class="lodging-sub">Free 24-hr airport shuttle · On-site restaurant &amp; lounge · Good for late arrivals &amp; early departures</div>
+            </div>
+            <div><div class="lodging-price">~$62–120</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+          <div class="lodging-item">
+            <span class="lodging-num">17</span>
+            <div>
+              <div class="lodging-name">Comfort Inn &amp; Suites Newark Liberty Airport <span style="font-size:0.7rem;color:var(--text-muted);">~15 mi</span></div>
+              <div class="lodging-sub">Airport shuttle · Budget-friendly · Good for fly-in guests needing simple, convenient accommodation</div>
+            </div>
+            <div><div class="lodging-price">~$74–120</div><div style="font-size:0.7rem;color:var(--text-muted);text-align:right;">per night</div></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.78rem;font-style:italic;color:var(--text-muted);margin-top:0.75rem;line-height:1.6;">All prices are estimates for June 6, 2026 and will vary. The Parsippany/Whippany/Morris Plains cluster is notably more affordable because it is further from MetLife Stadium — a good option if you don't mind the extra drive.</p>
+
+                </div>
+
+        <div class="airbnb-note">
+          <p><strong>Airbnb &amp; VRBO:</strong> There are short-term rental options in and around Montclair, though prices on June 6 are elevated due to the World Cup. We're happy to help individual cousins search for the right fit — just reach out to us directly at <a href="mailto:rglaser2@gmail.com">rglaser2@gmail.com</a>.</p>
+          <div class="airbnb-links">
+            <a href="https://www.airbnb.com/montclair-nj/stays" target="_blank" rel="noopener" class="btn-outline" style="color:var(--green-mid);border-color:var(--green-light);font-size:0.7rem;padding:0.5rem 1.25rem;">Search Airbnb</a>
+            <a href="https://www.vrbo.com/search?destination=Montclair%2C+NJ" target="_blank" rel="noopener" class="btn-outline" style="color:var(--green-mid);border-color:var(--green-light);font-size:0.7rem;padding:0.5rem 1.25rem;">Search VRBO</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.75rem;">Lodging Map</p>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1R4aZ-Khl45bMUF1DNaSrs491Lm72_8A&ehbc=2E312F" title="Lodging options map"></iframe>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.5;">All hotels plotted relative to 410 Grove St. Click any pin for details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE / MAPS -->
+<section class="maps" id="maps">
+  <div class="section-inner">
+    <p class="section-label">Explore</p>
+    <h2 class="section-title">The Area &amp; <em>Our Heritage</em></h2>
+    <p class="section-body">We're building out two curated maps — local Montclair favorites and the family heritage sites in Paterson where Irma's story began. Both are works in progress and will grow over the coming weeks.</p>
+
+    <div class="maps-grid">
+      <div class="map-card">
+        <div class="map-card-header">
+          <span class="map-card-tag">Local Guide</span>
+          <h3 class="map-card-title">Montclair Restaurants &amp; Sites</h3>
+          <p class="map-card-body">Our favorite local spots — restaurants, gardens, museums, and things to do. More pins being added weekly.</p>
+        </div>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17G0vVjH-hR86g1UZEVij17li_ML44wc&ehbc=2E312F" title="Montclair restaurants and local sites map"></iframe>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <span class="map-card-tag">Family Heritage</span>
+          <h3 class="map-card-title">Irma's Paterson</h3>
+          <p class="map-card-body">Key family-related sites in Paterson, NJ — Irma's birthplace and the community that shaped our family. Walking tour details coming soon.</p>
+        </div>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1wUP5TOpMEKYUP6vUehErZsbU9uuh3oU&ehbc=2E312F" title="Irma's Paterson family heritage sites map"></iframe>
+      </div>
+    </div>
+
+    <div class="neighborhood-grid" style="margin-top:2rem;">
+      <div class="nb-card">
+        <span class="nb-card-tag">Arts &amp; Culture</span>
+        <h3 class="nb-card-title">Montclair</h3>
+        <p class="nb-card-body">World-class art museum, the historic Wellmont Theatre, Van Vleck House &amp; Gardens, Presby Iris Gardens, and Bloomfield Avenue full of restaurants and shops.</p>
+      </div>
+      <div class="nb-card">
+        <span class="nb-card-tag">Heritage</span>
+        <h3 class="nb-card-title">Irma's Paterson</h3>
+        <p class="nb-card-body">Paterson is where Irma was born and her family's story began. The Great Falls, historic neighborhoods, and Silk City's remarkable industrial past await.</p>
+      </div>
+      <div class="nb-card">
+        <span class="nb-card-tag">Nature</span>
+        <h3 class="nb-card-title">Eagle Rock &amp; Beyond</h3>
+        <p class="nb-card-body">Eagle Rock Reservation offers sweeping Manhattan views. The Watchung and Mills Reservations provide beautiful trails just minutes from our door.</p>
+      </div>
+      <div class="nb-card">
+        <span class="nb-card-tag">Day Trip</span>
+        <h3 class="nb-card-title">New York City</h3>
+        <p class="nb-card-body">Direct NJ Transit trains to Penn Station in under 30 minutes. Broadway, museums, iconic neighborhoods — the city is right there.</p>
+      </div>
+      <div class="nb-card">
+        <span class="nb-card-tag">History</span>
+        <h3 class="nb-card-title">Cape May</h3>
+        <p class="nb-card-body">A nod to Henry and Irma's beloved Cape May home — where the magnolia trees still bloom. A possible extended trip for interested cousins.</p>
+      </div>
+      <div class="nb-card">
+        <span class="nb-card-tag">Sports</span>
+        <h3 class="nb-card-title">World Cup 2026</h3>
+        <p class="nb-card-body">The FIFA World Cup begins June 13 at nearby MetLife Stadium. Book your lodging early — and if you're staying the week, you might catch a match!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events" id="events">
+  <div class="section-inner">
+    <p class="section-label">Weekend Schedule</p>
+    <h2 class="section-title">Before &amp; <em>After</em></h2>
+    <p class="section-body">We're planning optional events around the main reunion. Let us know what interests you so we can plan accordingly!</p>
+    <div class="events-timeline">
+      <div class="event-item">
+        <div class="event-date"><span class="day">5</span><span class="month">June · Fri</span></div>
+        <div class="event-content">
+          <h3 class="event-title">Welcome Dinner — Friday Evening</h3>
+          <p class="event-body">An informal dinner for early arrivals at one of Montclair's excellent Bloomfield Avenue restaurants. A chance to settle in and reconnect before the big day. Location TBD based on interest.</p>
+          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
+            <span class="interest-count">Let us know and we'll plan!</span>
+          </div>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><span class="day">6</span><span class="month">June · Sat</span></div>
+        <div class="event-content">
+          <h3 class="event-title">The White Family Reunion ★</h3>
+          <p class="event-body">The main event! 410 Grove Street, Upper Montclair. 10:00 AM onwards. Food, drinks, lawn games, music, and family. This is the one — don't miss it.</p>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <button class="interest-btn active">I'll be there!</button>
+            <span class="interest-count">RSVP below ↓</span>
+          </div>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><span class="day">7</span><span class="month">June · Sun</span></div>
+        <div class="event-content">
+          <h3 class="event-title">Irma's Paterson Walking Tour</h3>
+          <p class="event-body">A guided walk through Paterson — Irma's birthplace — visiting key family-related sites, the Great Falls National Historical Park, and the historic neighborhoods that shaped our family. See our Paterson heritage map above for a preview of the sites.</p>
+          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
+            <span class="interest-count">Let us know and we'll plan!</span>
+          </div>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><span class="day">7</span><span class="month">June · Sun</span></div>
+        <div class="event-content">
+          <h3 class="event-title">Sunday Brunch &amp; Farewell</h3>
+          <p class="event-body">A relaxed farewell brunch before everyone heads home. Details TBD based on who's staying the weekend.</p>
+          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
+            <span class="interest-count">Let us know and we'll plan!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLLS -->
+<section class="polls" id="polls">
+  <div class="section-inner">
+    <p class="section-label">Have Your Say</p>
+    <h2 class="section-title">Help Us <em>Plan</em></h2>
+    <p class="section-body">Your input shapes the reunion. Tell us what you'd like to eat, suggest a song, and let us know what you're most excited about.</p>
+    <div class="poll-grid">
+      <div class="poll-card">
+        <h3 class="poll-question">What should definitely be on the grill?</h3>
+        <div class="poll-option"><label class="poll-option-row"><input type="checkbox"> <span class="poll-option-label">Burgers &amp; hot dogs (classic)</span></label><div class="poll-bar-wrap"><div class="poll-bar" style="width:72%"></div></div></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="checkbox"> <span class="poll-option-label">BBQ ribs &amp; chicken</span></label><div class="poll-bar-wrap"><div class="poll-bar" style="width:58%"></div></div></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="checkbox"> <span class="poll-option-label">Veggie &amp; plant-based options</span></label><div class="poll-bar-wrap"><div class="poll-bar" style="width:35%"></div></div></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="checkbox"> <span class="poll-option-label">Seafood (shrimp, fish)</span></label><div class="poll-bar-wrap"><div class="poll-bar" style="width:28%"></div></div></div>
+        <div style="margin-top:1rem;"><input type="text" placeholder="Add a suggestion..." style="font-size:0.85rem;padding:0.5rem 0.75rem;border:1px solid rgba(90,140,90,0.25);border-radius:2px;width:100%;font-family:var(--sans);"></div>
+      </div>
+      <div class="poll-card">
+        <h3 class="poll-question">Suggest a song for the reunion playlist!</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6;">What song takes you back to family memories? We're building a playlist for the day.</p>
+        <div class="form-group" style="margin-bottom:0.75rem;"><label>Song title</label><input type="text" placeholder="e.g. September — Earth, Wind &amp; Fire"></div>
+        <div class="form-group" style="margin-bottom:0.75rem;"><label>Artist</label><input type="text" placeholder="e.g. Earth, Wind &amp; Fire"></div>
+        <div class="form-group" style="margin-bottom:1rem;"><label>Why this song? (optional)</label><input type="text" placeholder="e.g. Grandma always danced to this one"></div>
+        <button class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;">Add to Playlist</button>
+      </div>
+      <div class="poll-card">
+        <h3 class="poll-question">What are you most looking forward to?</h3>
+        <div class="poll-option"><label class="poll-option-row"><input type="radio" name="excited"> <span class="poll-option-label">Seeing family I haven't seen in years</span></label></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="radio" name="excited"> <span class="poll-option-label">The food (obviously)</span></label></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="radio" name="excited"> <span class="poll-option-label">Sharing family stories &amp; memories</span></label></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="radio" name="excited"> <span class="poll-option-label">The Paterson walking tour</span></label></div>
+        <div class="poll-option"><label class="poll-option-row"><input type="radio" name="excited"> <span class="poll-option-label">Lawn games &amp; friendly competition!</span></label></div>
+      </div>
+      <div class="poll-card">
+        <h3 class="poll-question">Family heirlooms &amp; treasures</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6;">Have a family item you'd like to pass on to the right person? Post it on the <a href="#bulletin" style="color:var(--green-mid);">Family Bulletin Board</a> below — or let us know here.</p>
+        <div class="form-group" style="margin-bottom:0.75rem;"><label>Item description</label><input type="text" placeholder="e.g. Irma's china set, 12-piece"></div>
+        <div class="form-group" style="margin-bottom:1rem;"><label>Your name</label><input type="text" placeholder="Your name"></div>
+        <button class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;">Post to Board</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY STORIES -->
+<section class="stories" id="stories">
+  <div class="section-inner">
+    <p class="section-label">Family Archive</p>
+    <h2 class="section-title">Stories &amp; <em>Memories</em></h2>
+    <p class="section-body">A living record of who we are and where we came from. New stories added as the reunion approaches — and we'd love yours too.</p>
+    <div class="story-cards">
+      <a href="#" class="story-card">
+        <div class="story-card-img"><span class="story-card-img-label">Paterson</span></div>
+        <div class="story-card-body">
+          <span class="story-card-tag">Heritage</span>
+          <h3 class="story-card-title">Irma's Paterson: A Family History</h3>
+          <p class="story-card-excerpt">The streets where our grandmother grew up, the church her family attended, and the community that shaped the woman who shaped us all.</p>
+        </div>
+        <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
+      </a>
+      <a href="#" class="story-card">
+        <div class="story-card-img"><span class="story-card-img-label">Cape May</span></div>
+        <div class="story-card-body">
+          <span class="story-card-tag">Memory</span>
+          <h3 class="story-card-title">The Magnolias of Cape May</h3>
+          <p class="story-card-excerpt">Every summer, we'd arrive at Grandma Irma's and the magnolias were the first thing you saw. Their fragrance was the smell of belonging.</p>
+        </div>
+        <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
+      </a>
+      <a href="#" class="story-card">
+        <div class="story-card-img"><span class="story-card-img-label">Family</span></div>
+        <div class="story-card-body">
+          <span class="story-card-tag">Tradition</span>
+          <h3 class="story-card-title">How Henry &amp; Irma Started It All</h3>
+          <p class="story-card-excerpt">The first reunion was modest — a backyard, a few tables, some potato salad. Nobody imagined it would still be happening decades later.</p>
+        </div>
+        <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;">Have a family story to share? We'd love to publish it here.</p>
+      <a href="mailto:rglaser2@gmail.com" class="btn-outline" style="color:var(--green-mid);border-color:var(--green-light);">Submit Your Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp" id="rsvp">
+  <div class="rsvp-inner">
+    <p class="section-label" style="justify-content:center;">Reserve Your Place</p>
+    <h2 class="section-title" style="text-align:center;">RSVP <em>Here</em></h2>
+    <p class="section-body" style="max-width:100%;text-align:center;margin:0 auto;">Add everyone in your group — we collect each person's name individually so the whole family can see who's coming. One form per submission.</p>
+
+    <div class="form-card" id="rsvp-form-card">
+      <h3>Who's joining us?</h3>
+      <div class="attendee-rows" id="attendee-rows">
+        <div class="attendee-row">
+          <input type="text" placeholder="First name" class="fname">
+          <input type="text" placeholder="Last name" class="lname">
+          <button class="remove-btn" onclick="removeRow(this)" title="Remove">×</button>
+        </div>
+      </div>
+      <button class="add-person-btn" onclick="addRow()">+ Add another person</button>
+      <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Attendance</p>
+      <div class="status-row">
+        <input type="radio" name="status" id="s-coming" class="status-opt" value="coming" checked>
+        <label for="s-coming" class="status-label">Coming!</label>
+        <input type="radio" name="status" id="s-maybe" class="status-opt" value="maybe">
+        <label for="s-maybe" class="status-label">Maybe</label>
+        <input type="radio" name="status" id="s-cant" class="status-opt" value="cant">
+        <label for="s-cant" class="status-label">Can't make it</label>
+      </div>
+      <button class="submit-btn" onclick="submitRsvp()">Submit RSVP</button>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      Thank you! Your RSVP has been added — we can't wait to see you!<br><br>
+      <button class="add-person-btn" style="margin:0 auto;" onclick="resetForm()">Submit another RSVP</button>
+    </div>
+
+    <div style="border-top:1px solid rgba(90,140,90,0.15);padding-top:2rem;margin-top:1rem;">
+      <div class="wall-header">
+        <p class="section-label" style="margin:0;">Who's coming</p>
+        <span id="total-label" style="font-size:0.8rem;color:var(--text-muted);"></span>
+      </div>
+      <div class="counts-bar">
+        <div class="count-pill pill-coming"><span class="num" id="cnt-coming">0</span><span class="lbl">Coming</span></div>
+        <div class="count-pill pill-maybe"><span class="num" id="cnt-maybe">0</span><span class="lbl">Maybe</span></div>
+        <div class="count-pill pill-cant"><span class="num" id="cnt-cant">0</span><span class="lbl">Can't make it</span></div>
+      </div>
+      <div class="admin-bar">
+        <label>Admin access:</label>
+        <input type="password" id="admin-pw" placeholder="Password" onkeydown="if(event.key==='Enter')checkAdmin()">
+        <button onclick="checkAdmin()">Unlock</button>
+        <span class="admin-note" id="admin-status"></span>
+      </div>
+      <div id="wall"></div>
+    </div>
+    <p class="rsvp-note">Questions? Email us at <a href="mailto:rglaser2@gmail.com" style="color:var(--green-mid);">rglaser2@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- BULLETIN BOARD -->
+<section class="bulletin" id="bulletin">
+  <div class="section-inner">
+    <div class="board-header">
+      <div>
+        <p class="section-label">Community</p>
+        <h2 class="section-title">Family <em>Bulletin Board</em></h2>
+        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. All posts reviewed before publishing.</p>
+      </div>
+      <div style="flex-shrink:0;">
+        <button class="btn-primary" onclick="toggleNewPost()">+ New Post</button>
+      </div>
+    </div>
+    <div class="board-posts">
+      <div class="board-post">
+        <div class="board-post-header">
+          <div class="board-avatar">RG</div>
+          <div class="board-post-meta"><div class="name">Roberta Glaser</div><div class="date">Host · April 2026</div></div>
+          <span class="board-post-tag">Welcome</span>
+        </div>
+        <p class="board-post-body">Welcome to the family bulletin board! Use this space to post heirlooms and family treasures you'd like to pass along, share memories, or connect with cousins. So glad you're here — see you June 6th!</p>
+      </div>
+      <div class="board-post">
+        <div class="board-post-header">
+          <div class="board-avatar">MW</div>
+          <div class="board-post-meta"><div class="name">Margaret White-Collins</div><div class="date">April 2026</div></div>
+          <span class="board-post-tag">Heirloom</span>
+        </div>
+        <p class="board-post-body">I have Grandma Irma's set of hand-painted dessert plates — 8 pieces, all in excellent condition. She bought them in Cape May in the 1960s. Looking for the right family member to give them a good home. Email me if interested!</p>
+      </div>
+      <div class="board-post">
+        <div class="board-post-header">
+          <div class="board-avatar">TW</div>
+          <div class="board-post-meta"><div class="name">Thomas White Jr.</div><div class="date">April 2026</div></div>
+          <span class="board-post-tag">Memory</span>
+        </div>
+        <p class="board-post-body">Does anyone remember the summer reunion where Uncle Henry organized a family softball game and Grandma Irma was the umpire? She made up rules as she went and nobody dared argue with her. Best reunion ever. Can't wait for this one!</p>
+      </div>
+    </div>
+    <div class="board-new-post" id="new-post-form" style="display:none;">
+      <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--green-deep);margin-bottom:1rem;">Add a Post</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label>Post Type</label>
+          <select><option>Memory / Story</option><option>Heirloom / Item to Pass Along</option><option>Question</option><option>General</option></select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem;"><label>Your Message</label><textarea placeholder="Share a memory, post an heirloom, ask a question..."></textarea></div>
+      <button class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;">Submit Post</button>
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">Posts are reviewed before publishing. Usually within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Henry &amp; Irma</div>
+  <p class="footer-tagline">Reconnect · Celebrate · Remember</p>
+  <ul class="footer-nav">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#reunion">The Reunion</a></li>
+    <li><a href="#lodging">Lodging</a></li>
+    <li><a href="#maps">Explore</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#polls">Polls</a></li>
+    <li><a href="#stories">Family Stories</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#bulletin">Bulletin Board</a></li>
+  </ul>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">White Family Reunion · June 6, 2026 · 10:00 AM · Upper Montclair, NJ · henryandirma.com</p>
+</footer>
+
+<script>
+const ADMIN_PW = 'silkcity63';
+let rsvps = [];
+let isAdmin = false;
+
+try { const s = localStorage.getItem('hi_rsvps_v3'); if (s) rsvps = JSON.parse(s); } catch(e) {}
+
+function save() { try { localStorage.setItem('hi_rsvps_v3', JSON.stringify(rsvps)); } catch(e) {} }
+
+function addRow() {
+  const rows = document.getElementById('attendee-rows');
+  const div = document.createElement('div');
+  div.className = 'attendee-row';
+  div.innerHTML = '<input type="text" placeholder="First name" class="fname"><input type="text" placeholder="Last name" class="lname"><button class="remove-btn" onclick="removeRow(this)" title="Remove">&times;</button>';
+  rows.appendChild(div);
+}
+
+function removeRow(btn) {
+  const rows = document.querySelectorAll('.attendee-row');
+  if (rows.length > 1) btn.closest('.attendee-row').remove();
+}
+
+function submitRsvp() {
+  const rows = document.querySelectorAll('.attendee-row');
+  const status = document.querySelector('input[name="status"]:checked').value;
+  const names = [];
+  rows.forEach(row => {
+    const f = row.querySelector('.fname').value.trim();
+    const l = row.querySelector('.lname').value.trim();
+    if (f || l) names.push({ first:f, last:l, full:[f,l].filter(Boolean).join(' ') });
+  });
+  if (!names.length) { alert('Please enter at least one name.'); return; }
+  const ts = Date.now();
+  names.forEach(n => rsvps.push({ ...n, status, ts, id: ts + '_' + Math.random().toString(36).slice(2) }));
+  save();
+  document.getElementById('rsvp-form-card').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+  renderWall();
+}
+
+function resetForm() {
+  document.getElementById('rsvp-form-card').style.display = 'block';
+  document.getElementById('success-msg').style.display = 'none';
+  document.getElementById('attendee-rows').innerHTML = '<div class="attendee-row"><input type="text" placeholder="First name" class="fname"><input type="text" placeholder="Last name" class="lname"><button class="remove-btn" onclick="removeRow(this)" title="Remove">&times;</button></div>';
+  document.getElementById('s-coming').checked = true;
+}
+
+function deleteEntry(id) {
+  if (!isAdmin) return;
+  rsvps = rsvps.filter(r => r.id !== id);
+  save(); renderWall();
+}
+
+function checkAdmin() {
+  const pw = document.getElementById('admin-pw').value;
+  if (pw === ADMIN_PW) {
+    isAdmin = true;
+    document.getElementById('admin-status').textContent = 'Admin mode active — delete buttons now visible.';
+    document.getElementById('wall').classList.add('admin-mode');
+    document.getElementById('admin-pw').value = '';
+  } else {
+    document.getElementById('admin-status').textContent = 'Incorrect password.';
+    setTimeout(() => document.getElementById('admin-status').textContent = '', 3000);
+  }
+}
+
+function chips(list, cls) {
+  if (!list.length) return '<span class="empty-state">None yet</span>';
+  return '<div class="name-grid">' + list.map(r =>
+    '<div class="name-chip ' + cls + '"><span class="chip-name">' + (r.full || 'Anonymous') + '</span><button class="delete-x" onclick="deleteEntry(\'' + r.id + '\')" title="Remove">&times;</button></div>'
+  ).join('') + '</div>';
+}
+
+function renderWall() {
+  const coming = rsvps.filter(r => r.status === 'coming');
+  const maybe  = rsvps.filter(r => r.status === 'maybe');
+  const cant   = rsvps.filter(r => r.status === 'cant');
+  document.getElementById('cnt-coming').textContent = coming.length;
+  document.getElementById('cnt-maybe').textContent  = maybe.length;
+  document.getElementById('cnt-cant').textContent   = cant.length;
+  const total = rsvps.length;
+  document.getElementById('total-label').textContent = total ? total + (total === 1 ? ' person' : ' people') + ' responded' : '';
+  const wall = document.getElementById('wall');
+  wall.className = isAdmin ? 'admin-mode' : '';
+  wall.innerHTML =
+    '<div class="wall-section"><div class="wall-section-title"><span class="wall-dot dot-coming"></span><span style="color:var(--green-deep);">Coming</span><span style="color:var(--text-muted);font-weight:300;margin-left:4px;">(' + coming.length + ')</span></div>' + chips(coming,'coming') + '</div>' +
+    '<div class="wall-section"><div class="wall-section-title"><span class="wall-dot dot-maybe"></span><span style="color:#7a5500;">Maybe</span><span style="color:var(--text-muted);font-weight:300;margin-left:4px;">(' + maybe.length + ')</span></div>' + chips(maybe,'maybe') + '</div>' +
+    '<div class="wall-section"><div class="wall-section-title"><span class="wall-dot dot-cant"></span><span style="color:#666676;">Can\'t make it</span><span style="color:var(--text-muted);font-weight:300;margin-left:4px;">(' + cant.length + ')</span></div>' + chips(cant,'cant') + '</div>';
+}
+
+function toggleInterest(btn) {
+  btn.classList.toggle('active');
+  btn.textContent = btn.classList.contains('active') ? 'Interested!' : "I'm interested";
+}
+
+function toggleNewPost() {
+  const f = document.getElementById('new-post-form');
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+  if (f.style.display === 'block') f.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+renderWall();
+</script>
+</body>
+</html>
