@@ -301,7 +301,6 @@
 <nav>
   <a href="#" class="nav-logo">Henry <span>&</span> Irma</a>
   <ul class="nav-links">
-    <li><a href="#story">Our Story</a></li>
     <li><a href="#reunion">Reunion</a></li>
     <li><a href="#lodging">Lodging</a></li>
     <li><a href="#maps">Explore</a></li>
@@ -342,7 +341,7 @@
     </div>
     <div class="hero-cta">
       <a href="#rsvp" class="btn-primary">Reserve Your Spot</a>
-      <a href="#story" class="btn-outline">Our Story</a>
+      <a href="#reunion" class="btn-outline">The Reunion</a>
     </div>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -352,47 +351,6 @@
 </div>
 
 <!-- STORY -->
-<section class="story" id="story">
-  <div class="section-inner">
-    <div class="story-grid">
-      <div class="story-visual">
-        <div class="story-accent"></div>
-        <div class="story-frame">
-          <div class="magnolia-svg-wrap" aria-hidden="true">
-            <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="110" cy="160" rx="12" ry="80" fill="#4a8c54" opacity="0.6" transform="rotate(-10 110 160)"/>
-              <ellipse cx="110" cy="160" rx="12" ry="80" fill="#2d6a35" opacity="0.5" transform="rotate(15 110 160)"/>
-              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.95" transform="rotate(-20 110 110)"/>
-              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.90" transform="rotate(20 110 110)"/>
-              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.88" transform="rotate(60 110 110)"/>
-              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.85" transform="rotate(100 110 110)"/>
-              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.82" transform="rotate(140 110 110)"/>
-              <ellipse cx="110" cy="110" rx="10" ry="65" fill="white" opacity="0.80" transform="rotate(180 110 110)"/>
-              <circle cx="110" cy="110" r="14" fill="#f9f0d8" opacity="0.98"/>
-              <circle cx="110" cy="110" r="7" fill="#e8c97a" opacity="0.8"/>
-            </svg>
-          </div>
-          <div class="story-frame-inner">
-            <p class="story-caption">Magnolia grandiflora —<br>Irma's favorite, grown in Cape May</p>
-          </div>
-        </div>
-      </div>
-      <div class="story-text">
-        <p class="section-label">Our Roots</p>
-        <h2 class="section-title">Henry &amp; <em>Irma</em><br>White</h2>
-        <p class="section-body">Our grandparents Henry and Irma White started what has become our most beloved family tradition — an annual gathering that has brought cousins, children, and grandchildren together across the decades.</p>
-        <blockquote class="story-quote">"Family is not an important thing. It's everything."</blockquote>
-        <p class="section-body">Irma was born in <strong>Paterson, New Jersey</strong> — just miles from where we gather. Her family's roots run deep in this community, and this reunion is a chance to walk in her footsteps, visit places that shaped her, and carry those stories forward.</p>
-        <div class="story-detail">
-          <div class="story-stat"><span class="num">Annual</span><span class="lbl">Tradition</span></div>
-          <div class="story-stat"><span class="num">Paterson</span><span class="lbl">Irma's Birthplace</span></div>
-          <div class="story-stat"><span class="num">Cape May</span><span class="lbl">Family Home</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- REUNION INFO -->
 <section class="info" id="reunion">
   <div class="section-inner">
@@ -671,10 +629,6 @@
         <div class="event-content">
           <h3 class="event-title" style="color:var(--text-muted);">Friday Evening — TBD</h3>
           <p class="event-body">TBD — details to follow. We're exploring options for an informal Friday evening dinner for early arrivals. Let us know if you're interested and we'll plan accordingly!</p>
-          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-            <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
-            <span class="interest-count">Let us know and we'll plan!</span>
-          </div>
         </div>
       </div>
       <div class="event-item">
@@ -693,10 +647,6 @@
         <div class="event-content">
           <h3 class="event-title" style="color:var(--text-muted);">Sunday — Paterson Walking Tour (TBD)</h3>
           <p class="event-body">TBD — details to follow. We're planning a walk through Paterson, Irma's birthplace, visiting key family-related sites and the Great Falls National Historical Park. See our Paterson heritage map for a preview. Let us know if you're interested!</p>
-          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-            <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
-            <span class="interest-count">Let us know and we'll plan!</span>
-          </div>
         </div>
       </div>
       <div class="event-item" style="opacity:0.7;">
@@ -704,10 +654,6 @@
         <div class="event-content">
           <h3 class="event-title" style="color:var(--text-muted);">Sunday — Brunch &amp; Farewell (TBD)</h3>
           <p class="event-body">TBD — details to follow. We're considering a relaxed Sunday farewell brunch for those staying the weekend. Let us know if you're interested and we'll plan based on the response!</p>
-          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-            <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
-            <span class="interest-count">Let us know and we'll plan!</span>
-          </div>
         </div>
       </div>
     </div>
@@ -733,20 +679,10 @@
     <p class="section-label">Family Archive</p>
     <h2 class="section-title">Stories &amp; <em>Memories</em></h2>
     <p class="section-body">A living record of who we are and where we came from. New stories added as the reunion approaches — and we'd love yours too.</p>
-    <div class="story-cards" style="grid-template-columns:1fr;">
-      <a href="#" class="story-card" style="max-width:420px;">
-        <div class="story-card-img"><span class="story-card-img-label">Paterson</span></div>
-        <div class="story-card-body">
-          <span class="story-card-tag">Heritage</span>
-          <h3 class="story-card-title">Irma's Paterson: A Family History</h3>
-          <p class="story-card-excerpt">The streets where our grandmother grew up, the church her family attended, and the community that shaped the woman who shaped us all.</p>
-        </div>
-        <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;">
-      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;">Have a family story to share? We'd love to publish it here.</p>
-      <button onclick="window.location.href='mailto:rglaser2@gmail.com?subject=Family%20Story%20for%20henryandirma.com'" class="btn-outline" style="color:var(--green-mid);border-color:var(--green-light);">Submit Your Story</button>
+    <div style="margin-top:2rem;background:var(--white);border-radius:2px;border-left:3px solid var(--green-light);padding:2rem;">
+      <p style="font-family:var(--serif);font-size:1.3rem;font-weight:400;font-style:italic;color:var(--green-mid);margin-bottom:0.75rem;">Coming Soon</p>
+      <p style="font-size:1rem;line-height:1.8;color:var(--text-dark);margin-bottom:1.25rem;">Family stories and memories are being gathered and will appear here soon. Do you have a story, memory, or photo to share? We'd love to feature it!</p>
+      <a href="https://forms.gle/gux8gKRjGvZcWZdy6" target="_blank" rel="noopener" class="btn-outline" style="color:var(--green-mid);border-color:var(--green-light);display:inline-block;">Submit a Photo, Story or Memory</a>
     </div>
   </div>
 </section>
@@ -814,7 +750,7 @@
       <div>
         <p class="section-label">Community</p>
         <h2 class="section-title">Family <em>Bulletin Board</em></h2>
-        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. All posts reviewed before publishing.</p>
+        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. Click "New Post" to open a short Google Form — all posts are reviewed before publishing.</p>
       </div>
       <div style="flex-shrink:0;">
         <button class="btn-primary" onclick="toggleNewPost()">+ New Post</button>
@@ -840,8 +776,8 @@
         </div>
       </div>
       <div class="form-group" style="margin-bottom:1rem;"><label>Your Message</label><textarea placeholder="Share a memory, post an heirloom, ask a question..."></textarea></div>
-      <button class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;" onclick="submitBoardPost()">Submit Post</button>
-      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">Posts are reviewed before publishing. Usually within 24 hours.</p>
+      <a href="https://forms.gle/5MFzBEnvgjS8WQPv8" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;display:inline-block;">Submit Post</a>
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">Opens a short Google Form in a new tab. Posts are reviewed before publishing — usually within 24 hours.</p>
     </div>
   </div>
 </section>
@@ -851,7 +787,6 @@
   <div class="footer-logo">Henry &amp; Irma</div>
   <p class="footer-tagline">Reconnect · Celebrate · Remember</p>
   <ul class="footer-nav">
-    <li><a href="#story">Our Story</a></li>
     <li><a href="#reunion">The Reunion</a></li>
     <li><a href="#lodging">Lodging</a></li>
     <li><a href="#maps">Explore</a></li>
@@ -869,10 +804,23 @@
 const ADMIN_PW = 'silkcity63';
 let rsvps = [];
 let isAdmin = false;
+const STORAGE_KEY = 'white_reunion_rsvps_2026';
 
-try { const s = localStorage.getItem('hi_rsvps_v3'); if (s) rsvps = JSON.parse(s); } catch(e) {}
+async function loadRsvps() {
+  try {
+    const result = await window.storage.get(STORAGE_KEY, true);
+    if (result && result.value) rsvps = JSON.parse(result.value);
+  } catch(e) { rsvps = []; }
+  renderWall();
+}
 
-function save() { try { localStorage.setItem('hi_rsvps_v3', JSON.stringify(rsvps)); } catch(e) {} }
+async function save() {
+  try {
+    await window.storage.set(STORAGE_KEY, JSON.stringify(rsvps), true);
+  } catch(e) { console.error('Save failed', e); }
+}
+
+loadRsvps();
 
 function addRow() {
   const rows = document.getElementById('attendee-rows');
@@ -887,7 +835,7 @@ function removeRow(btn) {
   if (rows.length > 1) btn.closest('.attendee-row').remove();
 }
 
-function submitRsvp() {
+async function submitRsvp() {
   const rows = document.querySelectorAll('.attendee-row');
   const status = document.querySelector('input[name="status"]:checked').value;
   const names = [];
@@ -899,7 +847,7 @@ function submitRsvp() {
   if (!names.length) { alert('Please enter at least one name.'); return; }
   const ts = Date.now();
   names.forEach(n => rsvps.push({ ...n, status, ts, id: ts + '_' + Math.random().toString(36).slice(2) }));
-  save();
+  await save();
   document.getElementById('rsvp-form-card').style.display = 'none';
   document.getElementById('success-msg').style.display = 'block';
   renderWall();
@@ -912,10 +860,10 @@ function resetForm() {
   document.getElementById('s-coming').checked = true;
 }
 
-function deleteEntry(id) {
+async function deleteEntry(id) {
   if (!isAdmin) return;
   rsvps = rsvps.filter(r => r.id !== id);
-  save(); renderWall();
+  await save(); renderWall();
 }
 
 function checkAdmin() {
@@ -976,7 +924,6 @@ function submitBoardPost() {
   window.location.href = 'mailto:rglaser2@gmail.com?subject=' + subject + '&body=' + body;
 }
 
-renderWall();
 </script>
 </body>
 </html>
