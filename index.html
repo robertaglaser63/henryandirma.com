@@ -18,14 +18,14 @@
     --parchment: #f2ede3;
     --white: #ffffff;
     --text-dark: #1c2b1e;
-    --text-mid: #3d5c42;
-    --text-muted: #6b8c70;
+    --text-mid: #1c3520;
+    --text-muted: #2d5233;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Jost', system-ui, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: var(--sans); background: var(--cream); color: var(--text-dark); font-weight: 300; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--text-dark); font-weight: 400; font-size: 17px; }
 
   /* NAV */
   nav {
@@ -77,9 +77,9 @@
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-fresh); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-label::after { content:''; flex:1; max-width:3rem; height:1px; background:var(--green-light); opacity:0.5; }
-  .section-title { font-family: var(--serif); font-size: clamp(2rem,4vw,3rem); font-weight: 300; color: var(--green-deep); line-height: 1.1; margin-bottom: 1.5rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(2rem,4vw,3rem); font-weight: 400; color: var(--green-deep); line-height: 1.1; margin-bottom: 1.5rem; }
   .section-title em { font-style: italic; color: var(--green-mid); }
-  .section-body { font-size: 1.05rem; line-height: 1.85; color: var(--text-mid); max-width: 640px; }
+  .section-body { font-size: 1.1rem; line-height: 1.9; color: var(--text-dark); max-width: 640px; }
 
   /* STORY */
   .story { background: var(--white); }
@@ -101,8 +101,8 @@
   .info-card { background:var(--white); padding:2rem; border-radius:2px; border-left:3px solid var(--green-fresh); transition:transform 0.2s, box-shadow 0.2s; }
   .info-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(26,61,31,0.08); }
   .info-card-icon { font-size:1.5rem; margin-bottom:1rem; display:block; }
-  .info-card-title { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--green-deep); margin-bottom:0.5rem; }
-  .info-card-body { font-size:0.9rem; line-height:1.7; color:var(--text-muted); }
+  .info-card-title { font-family:var(--serif); font-size:1.25rem; font-weight:600; color:var(--green-deep); margin-bottom:0.5rem; }
+  .info-card-body { font-size:0.95rem; line-height:1.75; color:var(--text-dark); }
 
   /* LODGING */
   .lodging { background: var(--white); }
@@ -113,8 +113,8 @@
   .lodging-item { display:grid; grid-template-columns:auto 1fr auto; gap:1rem; align-items:center; padding:1.1rem 0.5rem; border-bottom:1px solid var(--green-mist); text-decoration:none; transition:background 0.15s, padding-left 0.15s; }
   .lodging-item:hover { background:var(--green-mist); padding-left:1rem; border-radius:2px; }
   .lodging-num { font-family:var(--serif); font-size:0.85rem; color:var(--text-muted); min-width:1.5rem; }
-  .lodging-name { font-size:0.95rem; font-weight:400; color:var(--text-dark); }
-  .lodging-sub { font-size:0.78rem; color:var(--text-muted); margin-top:0.15rem; }
+  .lodging-name { font-size:1rem; font-weight:500; color:var(--text-dark); }
+  .lodging-sub { font-size:0.82rem; color:var(--text-dark); margin-top:0.15rem; }
   .lodging-price { font-family:var(--serif); font-size:1rem; color:var(--green-mid); white-space:nowrap; font-weight:600; text-align:right; }
   .lodging-badge { font-size:0.62rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; background:var(--green-mist); color:var(--green-mid); padding:0.2rem 0.5rem; border-radius:2px; margin-left:0.5rem; }
   .lodging-badge.best { background:#fff8e1; color:#8b6914; }
@@ -168,12 +168,12 @@
   /* POLLS */
   .polls { background:var(--green-mist); }
   .poll-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
-  .poll-card { background:var(--white); padding:1.75rem; border-radius:2px; }
+  .poll-card { background:var(--white); padding:1.75rem; border-radius:2px; overflow:hidden; word-wrap:break-word; }
   .poll-question { font-family:var(--serif); font-size:1.05rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; line-height:1.4; }
-  .poll-option { margin-bottom:0.5rem; }
+  .poll-option { margin-bottom:0.85rem; }
   .poll-option-row { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.3rem; cursor:pointer; }
   .poll-option-row input { width:auto; accent-color:var(--green-fresh); cursor:pointer; }
-  .poll-option-label { font-size:0.9rem; color:var(--text-mid); cursor:pointer; }
+  .poll-option-label { font-size:0.95rem; color:var(--text-dark); cursor:pointer; line-height:1.4; }
   .poll-bar-wrap { height:4px; background:var(--green-mist); border-radius:2px; margin-left:1.5rem; overflow:hidden; }
   .poll-bar { height:100%; background:var(--green-fresh); border-radius:2px; }
 
@@ -278,6 +278,7 @@
 
   /* RESPONSIVE */
   @media (max-width:900px) {
+    body { font-size:16px; color:#1a3d1f; }
     nav { padding:1rem 1.5rem; }
     .nav-links { gap:0.75rem; }
     section { padding:4rem 1.5rem; }
@@ -407,7 +408,12 @@
       <div class="info-card">
         <span class="info-card-icon">🍖</span>
         <h3 class="info-card-title">Food &amp; Drink</h3>
-        <p class="info-card-body">Luis mans the grill starting at 10am. Food and drinks flowing all day. Tell us your favorites in the polls below!</p>
+        <p class="info-card-body">Luis mans the grill starting at 10am. Food and drinks flowing all day. Tell us your favorites in the <a href="#polls" style="color:var(--green-mid);">food &amp; playlist polls below</a>!</p>
+      </div>
+      <div class="info-card" style="border-left-color:#c9940a;">
+        <span class="info-card-icon">💛</span>
+        <h3 class="info-card-title" style="color:#7a5500;">Suggested Contribution</h3>
+        <p class="info-card-body">In past years we've asked family members to bring a dish to pass. This year we're doing it differently — food and drinks are fully covered! We simply suggest a contribution of <strong>$25 per person</strong> to help offset costs. No obligation, and no one will be turned away. We just want everyone there!</p>
       </div>
       <div class="info-card">
         <span class="info-card-icon">🎯</span>
@@ -649,38 +655,7 @@
       </div>
     </div>
 
-    <div class="neighborhood-grid" style="margin-top:2rem;">
-      <div class="nb-card">
-        <span class="nb-card-tag">Arts &amp; Culture</span>
-        <h3 class="nb-card-title">Montclair</h3>
-        <p class="nb-card-body">World-class art museum, the historic Wellmont Theatre, Van Vleck House &amp; Gardens, Presby Iris Gardens, and Bloomfield Avenue full of restaurants and shops.</p>
-      </div>
-      <div class="nb-card">
-        <span class="nb-card-tag">Heritage</span>
-        <h3 class="nb-card-title">Irma's Paterson</h3>
-        <p class="nb-card-body">Paterson is where Irma was born and her family's story began. The Great Falls, historic neighborhoods, and Silk City's remarkable industrial past await.</p>
-      </div>
-      <div class="nb-card">
-        <span class="nb-card-tag">Nature</span>
-        <h3 class="nb-card-title">Eagle Rock &amp; Beyond</h3>
-        <p class="nb-card-body">Eagle Rock Reservation offers sweeping Manhattan views. The Watchung and Mills Reservations provide beautiful trails just minutes from our door.</p>
-      </div>
-      <div class="nb-card">
-        <span class="nb-card-tag">Day Trip</span>
-        <h3 class="nb-card-title">New York City</h3>
-        <p class="nb-card-body">Direct NJ Transit trains to Penn Station in under 30 minutes. Broadway, museums, iconic neighborhoods — the city is right there.</p>
-      </div>
-      <div class="nb-card">
-        <span class="nb-card-tag">History</span>
-        <h3 class="nb-card-title">Cape May</h3>
-        <p class="nb-card-body">A nod to Henry and Irma's beloved Cape May home — where the magnolia trees still bloom. A possible extended trip for interested cousins.</p>
-      </div>
-      <div class="nb-card">
-        <span class="nb-card-tag">Sports</span>
-        <h3 class="nb-card-title">World Cup 2026</h3>
-        <p class="nb-card-body">The FIFA World Cup begins June 13 at nearby MetLife Stadium. Book your lodging early — and if you're staying the week, you might catch a match!</p>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -695,7 +670,7 @@
         <div class="event-date"><span class="day">5</span><span class="month">June · Fri</span></div>
         <div class="event-content">
           <h3 class="event-title">Welcome Dinner — Friday Evening</h3>
-          <p class="event-body">An informal dinner for early arrivals at one of Montclair's excellent Bloomfield Avenue restaurants. A chance to settle in and reconnect before the big day. Location TBD based on interest.</p>
+          <p class="event-body">TBD — details to follow. We're exploring options for an informal Friday evening dinner for early arrivals. Let us know if you're interested and we'll plan accordingly!</p>
           <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
             <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
             <span class="interest-count">Let us know and we'll plan!</span>
@@ -717,7 +692,7 @@
         <div class="event-date"><span class="day">7</span><span class="month">June · Sun</span></div>
         <div class="event-content">
           <h3 class="event-title">Irma's Paterson Walking Tour</h3>
-          <p class="event-body">A guided walk through Paterson — Irma's birthplace — visiting key family-related sites, the Great Falls National Historical Park, and the historic neighborhoods that shaped our family. See our Paterson heritage map above for a preview of the sites.</p>
+          <p class="event-body">TBD — details to follow. We're planning a walk through Paterson, Irma's birthplace, visiting key family-related sites and the Great Falls National Historical Park. See our Paterson heritage map for a preview. Let us know if you're interested!</p>
           <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
             <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
             <span class="interest-count">Let us know and we'll plan!</span>
@@ -728,7 +703,7 @@
         <div class="event-date"><span class="day">7</span><span class="month">June · Sun</span></div>
         <div class="event-content">
           <h3 class="event-title">Sunday Brunch &amp; Farewell</h3>
-          <p class="event-body">A relaxed farewell brunch before everyone heads home. Details TBD based on who's staying the weekend.</p>
+          <p class="event-body">TBD — details to follow. We're considering a relaxed Sunday farewell brunch for those staying the weekend. Let us know if you're interested and we'll plan based on the response!</p>
           <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
             <button class="interest-btn" onclick="toggleInterest(this)">I'm interested</button>
             <span class="interest-count">Let us know and we'll plan!</span>
@@ -787,31 +762,13 @@
     <p class="section-label">Family Archive</p>
     <h2 class="section-title">Stories &amp; <em>Memories</em></h2>
     <p class="section-body">A living record of who we are and where we came from. New stories added as the reunion approaches — and we'd love yours too.</p>
-    <div class="story-cards">
-      <a href="#" class="story-card">
+    <div class="story-cards" style="grid-template-columns:1fr;">
+      <a href="#" class="story-card" style="max-width:420px;">
         <div class="story-card-img"><span class="story-card-img-label">Paterson</span></div>
         <div class="story-card-body">
           <span class="story-card-tag">Heritage</span>
           <h3 class="story-card-title">Irma's Paterson: A Family History</h3>
           <p class="story-card-excerpt">The streets where our grandmother grew up, the church her family attended, and the community that shaped the woman who shaped us all.</p>
-        </div>
-        <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
-      </a>
-      <a href="#" class="story-card">
-        <div class="story-card-img"><span class="story-card-img-label">Cape May</span></div>
-        <div class="story-card-body">
-          <span class="story-card-tag">Memory</span>
-          <h3 class="story-card-title">The Magnolias of Cape May</h3>
-          <p class="story-card-excerpt">Every summer, we'd arrive at Grandma Irma's and the magnolias were the first thing you saw. Their fragrance was the smell of belonging.</p>
-        </div>
-        <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
-      </a>
-      <a href="#" class="story-card">
-        <div class="story-card-img"><span class="story-card-img-label">Family</span></div>
-        <div class="story-card-body">
-          <span class="story-card-tag">Tradition</span>
-          <h3 class="story-card-title">How Henry &amp; Irma Started It All</h3>
-          <p class="story-card-excerpt">The first reunion was modest — a backyard, a few tables, some potato salad. Nobody imagined it would still be happening decades later.</p>
         </div>
         <div class="story-card-footer"><span>By Roberta Glaser</span><span>Coming soon</span></div>
       </a>
@@ -901,22 +858,7 @@
         </div>
         <p class="board-post-body">Welcome to the family bulletin board! Use this space to post heirlooms and family treasures you'd like to pass along, share memories, or connect with cousins. So glad you're here — see you June 6th!</p>
       </div>
-      <div class="board-post">
-        <div class="board-post-header">
-          <div class="board-avatar">MW</div>
-          <div class="board-post-meta"><div class="name">Margaret White-Collins</div><div class="date">April 2026</div></div>
-          <span class="board-post-tag">Heirloom</span>
-        </div>
-        <p class="board-post-body">I have Grandma Irma's set of hand-painted dessert plates — 8 pieces, all in excellent condition. She bought them in Cape May in the 1960s. Looking for the right family member to give them a good home. Email me if interested!</p>
-      </div>
-      <div class="board-post">
-        <div class="board-post-header">
-          <div class="board-avatar">TW</div>
-          <div class="board-post-meta"><div class="name">Thomas White Jr.</div><div class="date">April 2026</div></div>
-          <span class="board-post-tag">Memory</span>
-        </div>
-        <p class="board-post-body">Does anyone remember the summer reunion where Uncle Henry organized a family softball game and Grandma Irma was the umpire? She made up rules as she went and nobody dared argue with her. Best reunion ever. Can't wait for this one!</p>
-      </div>
+
     </div>
     <div class="board-new-post" id="new-post-form" style="display:none;">
       <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--green-deep);margin-bottom:1rem;">Add a Post</h3>
@@ -1056,4 +998,3 @@ function toggleNewPost() {
 renderWall();
 </script>
 </body>
-</html>
