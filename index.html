@@ -52,12 +52,12 @@
   }
   .hero-content { position: relative; z-index: 2; text-align: center; padding: 2rem; max-width: 780px; animation: fadeUp 1.2s ease both; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-  .hero-eyebrow { font-family: var(--sans); font-size: 0.72rem; font-weight:300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1.5rem; animation: fadeUp 1.2s 0.1s ease both; }
-  .hero-names { font-family: var(--serif); font-size: clamp(4rem,10vw,7.5rem); font-weight: 200; line-height: 0.9; color: var(--white); letter-spacing: -0.01em; margin-bottom: 0.4rem; animation: fadeUp 1.2s 0.2s ease both; }
+  .hero-eyebrow { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1.5rem; animation: fadeUp 1.2s 0.1s ease both; }
+  .hero-names { font-family: var(--serif); font-size: clamp(4rem,10vw,7.5rem); font-weight: 300; line-height: 0.9; color: var(--white); letter-spacing: -0.01em; margin-bottom: 0.4rem; animation: fadeUp 1.2s 0.2s ease both; }
   .hero-names em { font-style: italic; color: var(--green-light); display: block; }
   .hero-amp { display: block; font-size: 0.55em; color: var(--green-fresh); font-style: normal; margin: 0.1em 0; }
   .hero-subtitle { font-family: var(--serif); font-size: clamp(1.1rem,2.5vw,1.5rem); font-weight: 300; font-style: italic; color: var(--green-pale); margin-bottom: 0.6rem; letter-spacing: 0.03em; animation: fadeUp 1.2s 0.3s ease both; }
-  .hero-tagline { font-family: var(--sans); font-size: 1.05rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-pale); opacity: 0.95; margin-bottom: 3rem; animation: fadeUp 1.2s 0.35s ease both; }
+  .hero-tagline { font-family: var(--sans); font-size: 1.05rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); opacity: 0.95; margin-bottom: 3rem; animation: fadeUp 1.2s 0.35s ease both; }
   .hero-date-card { display: inline-flex; align-items: center; gap: 1.5rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(122,182,130,0.3); border-radius: 2px; padding: 1rem 2.5rem; margin-bottom: 2.5rem; animation: fadeUp 1.2s 0.45s ease both; }
   .hero-date-part { text-align: center; }
   .hero-date-part .label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); display: block; margin-bottom: 0.2rem; }
@@ -320,11 +320,9 @@
   <div class="hero-content">
     <p class="hero-eyebrow">White Family Reunion 2026 &nbsp;·&nbsp; Upper Montclair, New Jersey</p>
     <h1 class="hero-names">
-      Descendants of
-      <span class="hero-amp" style="font-size:0.35em;letter-spacing:0.05em;">Henry &amp; Irma</span>
-      <em></em>
+      <span style="font-size:0.28em;letter-spacing:0.15em;text-transform:uppercase;font-style:normal;color:var(--green-light);display:block;margin-bottom:0.5em;font-family:var(--sans);font-weight:400;">Descendants of</span>
+      Henry &amp; <em>Irma</em>
     </h1>
-    <p class="hero-subtitle"></p>
     <p class="hero-tagline">Reconnect &nbsp;·&nbsp; Celebrate &nbsp;·&nbsp; Remember</p>
     <div class="hero-date-card">
       <div class="hero-date-part">
