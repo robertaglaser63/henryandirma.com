@@ -800,27 +800,36 @@
   <p class="footer-copy">White Family Reunion · June 6, 2026 · 10:00 AM · Upper Montclair, NJ · henryandirma.com</p>
 </footer>
 
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, push, remove, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD6i6XxuP4xytYgiuGTwg3Ew9s4rfyokts",
+  authDomain: "whitefamilyreunion-6c921.firebaseapp.com",
+  databaseURL: "https://whitefamilyreunion-6c921-default-rtdb.firebaseio.com",
+  projectId: "whitefamilyreunion-6c921",
+  storageBucket: "whitefamilyreunion-6c921.firebasestorage.app",
+  messagingSenderId: "823889245733",
+  appId: "1:823889245733:web:46b9e39489b6a782a731cc"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const rsvpRef = ref(db, 'rsvps');
+
 const ADMIN_PW = 'silkcity63';
 let rsvps = [];
 let isAdmin = false;
-const STORAGE_KEY = 'white_reunion_rsvps_2026';
 
-async function loadRsvps() {
-  try {
-    const result = await window.storage.get(STORAGE_KEY, true);
-    if (result && result.value) rsvps = JSON.parse(result.value);
-  } catch(e) { rsvps = []; }
+// Listen for real-time updates from Firebase
+onValue(rsvpRef, (snapshot) => {
+  rsvps = [];
+  snapshot.forEach((child) => {
+    rsvps.push({ ...child.val(), firebaseKey: child.key });
+  });
   renderWall();
-}
-
-async function save() {
-  try {
-    await window.storage.set(STORAGE_KEY, JSON.stringify(rsvps), true);
-  } catch(e) { console.error('Save failed', e); }
-}
-
-loadRsvps();
+});
 
 function addRow() {
   const rows = document.getElementById('attendee-rows');
@@ -846,11 +855,11 @@ async function submitRsvp() {
   });
   if (!names.length) { alert('Please enter at least one name.'); return; }
   const ts = Date.now();
-  names.forEach(n => rsvps.push({ ...n, status, ts, id: ts + '_' + Math.random().toString(36).slice(2) }));
-  await save();
+  for (const n of names) {
+    await push(rsvpRef, { ...n, status, ts });
+  }
   document.getElementById('rsvp-form-card').style.display = 'none';
   document.getElementById('success-msg').style.display = 'block';
-  renderWall();
 }
 
 function resetForm() {
@@ -860,10 +869,10 @@ function resetForm() {
   document.getElementById('s-coming').checked = true;
 }
 
-async function deleteEntry(id) {
+async function deleteEntry(firebaseKey) {
   if (!isAdmin) return;
-  rsvps = rsvps.filter(r => r.id !== id);
-  await save(); renderWall();
+  const entryRef = ref(db, 'rsvps/' + firebaseKey);
+  await remove(entryRef);
 }
 
 function checkAdmin() {
@@ -924,6 +933,15 @@ function submitBoardPost() {
   window.location.href = 'mailto:rglaser2@gmail.com?subject=' + subject + '&body=' + body;
 }
 
+// Expose functions to global scope for inline HTML onclick handlers
+window.addRow = addRow;
+window.removeRow = removeRow;
+window.submitRsvp = submitRsvp;
+window.resetForm = resetForm;
+window.deleteEntry = deleteEntry;
+window.checkAdmin = checkAdmin;
+window.toggleNewPost = toggleNewPost;
+window.submitBoardPost = submitBoardPost;
 </script>
 </body>
 </html>
