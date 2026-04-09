@@ -317,13 +317,12 @@
   <div class="hero-content">
     <p class="hero-eyebrow">White Family Reunion 2026 &nbsp;·&nbsp; Upper Montclair, New Jersey</p>
     <h1 class="hero-names">
-    Descendents of
+      Henry
       <span class="hero-amp">&amp;</span>
-      <em>Henry and Irma</em>
+      <em>Irma</em>
     </h1>
-     <p class="hero-subtitle">Reconnect &nbsp;·&nbsp; Celebrate &nbsp;·&nbsp; Remember</p>
-
-    <p class="hero-tagline"> </p>
+    <p class="hero-subtitle">In their honor, in their spirit, gathered together again</p>
+    <p class="hero-tagline">Reconnect &nbsp;·&nbsp; Celebrate &nbsp;·&nbsp; Remember</p>
     <div class="hero-date-card">
       <div class="hero-date-part">
         <span class="label">Date</span>
@@ -337,7 +336,7 @@
       <div class="hero-divider"></div>
       <div class="hero-date-part">
         <span class="label">Location</span>
-        <span class="value">Upper Montclair, NJ</span>
+        <span class="value">Montclair, NJ</span>
       </div>
     </div>
     <div class="hero-cta">
@@ -751,13 +750,16 @@
       <div>
         <p class="section-label">Community</p>
         <h2 class="section-title">Family <em>Bulletin Board</em></h2>
-        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. Click "New Post" to open a short Google Form — all posts are reviewed before publishing.</p>
+        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. All posts are reviewed before appearing — usually within 24 hours.</p>
       </div>
       <div style="flex-shrink:0;">
         <button class="btn-primary" onclick="toggleNewPost()">+ New Post</button>
       </div>
     </div>
-    <div class="board-posts">
+
+    <!-- Approved posts — live from Firebase -->
+    <div id="board-posts-container">
+      <!-- Roberta's welcome post is always pinned first -->
       <div class="board-post">
         <div class="board-post-header">
           <div class="board-avatar">RG</div>
@@ -766,19 +768,44 @@
         </div>
         <p class="board-post-body">Welcome to the family bulletin board! Use this space to post heirlooms and family treasures you'd like to pass along, share memories, or connect with cousins. So glad you're here — see you June 6th!</p>
       </div>
-
+      <div id="approved-posts"></div>
     </div>
-    <div class="board-new-post" id="new-post-form" style="display:none;">
+
+    <!-- Admin pending review panel — only visible when admin unlocked -->
+    <div id="pending-panel" style="display:none; margin-top:2rem;">
+      <div style="background:#fff8e1; border:1px solid #f0d080; border-radius:2px; padding:1.25rem 1.5rem; margin-bottom:1rem;">
+        <p style="font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:#8b6914; margin-bottom:0.25rem;">Admin — Pending Posts</p>
+        <p style="font-size:0.85rem; color:#7a5500;">Review submissions below and approve or reject each one.</p>
+      </div>
+      <div id="pending-posts"></div>
+      <p id="no-pending" style="font-size:0.85rem; font-style:italic; color:var(--text-muted); display:none;">No pending posts — you're all caught up!</p>
+    </div>
+
+    <!-- New post form -->
+    <div class="board-new-post" id="new-post-form" style="display:none; margin-top:1.5rem;">
       <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--green-deep);margin-bottom:1rem;">Add a Post</h3>
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Your name"></div>
-        <div class="form-group"><label>Post Type</label>
-          <select><option>Memory / Story</option><option>Heirloom / Item to Pass Along</option><option>Question</option><option>General</option></select>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="board-name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label>Post Type</label>
+          <select id="board-type">
+            <option>Memory / Story</option>
+            <option>Heirloom / Item to Pass Along</option>
+            <option>Question</option>
+            <option>General</option>
+          </select>
         </div>
       </div>
-      <div class="form-group" style="margin-bottom:1rem;"><label>Your Message</label><textarea placeholder="Share a memory, post an heirloom, ask a question..."></textarea></div>
-      <a href="https://forms.gle/5MFzBEnvgjS8WQPv8" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;display:inline-block;">Submit Post</a>
-      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">Opens a short Google Form in a new tab. Posts are reviewed before publishing — usually within 24 hours.</p>
+      <div class="form-group" style="margin-bottom:1rem;">
+        <label>Your Message</label>
+        <textarea id="board-msg" placeholder="Share a memory, post an heirloom, ask a question..."></textarea>
+      </div>
+      <button class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;" onclick="submitBoardPost()">Submit Post</button>
+      <p id="board-success" style="display:none; font-family:var(--serif); font-style:italic; color:var(--green-mid); margin-top:0.75rem;">Thank you! Your post has been submitted and will appear after review.</p>
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;">Posts are reviewed before publishing — usually within 24 hours.</p>
     </div>
   </div>
 </section>
@@ -818,18 +845,38 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const rsvpRef = ref(db, 'rsvps');
+const postsRef = ref(db, 'approved_posts');
+const pendingRef = ref(db, 'pending_posts');
 
 const ADMIN_PW = 'silkcity63';
 let rsvps = [];
 let isAdmin = false;
 
-// Listen for real-time updates from Firebase
+// Listen for real-time updates from Firebase — RSVPs
 onValue(rsvpRef, (snapshot) => {
   rsvps = [];
   snapshot.forEach((child) => {
     rsvps.push({ ...child.val(), firebaseKey: child.key });
   });
   renderWall();
+});
+
+// Listen for approved bulletin board posts
+onValue(postsRef, (snapshot) => {
+  const posts = [];
+  snapshot.forEach((child) => {
+    posts.push({ ...child.val(), firebaseKey: child.key });
+  });
+  renderBoard(posts);
+});
+
+// Listen for pending posts (admin only)
+onValue(pendingRef, (snapshot) => {
+  const pending = [];
+  snapshot.forEach((child) => {
+    pending.push({ ...child.val(), firebaseKey: child.key });
+  });
+  renderPending(pending);
 });
 
 function addRow() {
@@ -880,9 +927,11 @@ function checkAdmin() {
   const pw = document.getElementById('admin-pw').value;
   if (pw === ADMIN_PW) {
     isAdmin = true;
-    document.getElementById('admin-status').textContent = 'Admin mode active — delete buttons now visible.';
+    document.getElementById('admin-status').textContent = 'Admin mode active.';
     document.getElementById('wall').classList.add('admin-mode');
     document.getElementById('admin-pw').value = '';
+    const panel = document.getElementById('pending-panel');
+    if (panel) panel.style.display = 'block';
   } else {
     document.getElementById('admin-status').textContent = 'Incorrect password.';
     setTimeout(() => document.getElementById('admin-status').textContent = '', 3000);
@@ -924,14 +973,86 @@ function toggleNewPost() {
   if (f.style.display === 'block') f.scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-function submitBoardPost() {
-  const name = document.querySelector('#new-post-form input[placeholder="Your name"]').value.trim();
-  const type = document.querySelector('#new-post-form select').value;
-  const msg  = document.querySelector('#new-post-form textarea').value.trim();
+async function submitBoardPost() {
+  const name = document.getElementById('board-name').value.trim();
+  const type = document.getElementById('board-type').value;
+  const msg  = document.getElementById('board-msg').value.trim();
   if (!name || !msg) { alert('Please enter your name and a message.'); return; }
-  const subject = encodeURIComponent('Bulletin Board Post: ' + type);
-  const body    = encodeURIComponent('Name: ' + name + '\nType: ' + type + '\n\nMessage:\n' + msg);
-  window.location.href = 'mailto:rglaser2@gmail.com?subject=' + subject + '&body=' + body;
+  await push(pendingRef, { name, type, msg, ts: Date.now() });
+  document.getElementById('board-name').value = '';
+  document.getElementById('board-msg').value = '';
+  document.getElementById('board-success').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('board-success').style.display = 'none';
+    document.getElementById('new-post-form').style.display = 'none';
+  }, 3000);
+}
+
+async function approvePost(firebaseKey) {
+  const post = pendingPosts.find(p => p.firebaseKey === firebaseKey);
+  if (!post) return;
+  await push(postsRef, { name: post.name, type: post.type, msg: post.msg, ts: post.ts });
+  await remove(ref(db, 'pending_posts/' + firebaseKey));
+}
+
+async function rejectPost(firebaseKey) {
+  if (!confirm('Delete this post permanently?')) return;
+  await remove(ref(db, 'pending_posts/' + firebaseKey));
+}
+
+async function deleteApprovedPost(firebaseKey) {
+  if (!isAdmin) return;
+  await remove(ref(db, 'approved_posts/' + firebaseKey));
+}
+
+let pendingPosts = [];
+
+function renderBoard(posts) {
+  const container = document.getElementById('approved-posts');
+  if (!container) return;
+  if (!posts.length) { container.innerHTML = ''; return; }
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  container.innerHTML = posts.map(p => {
+    const d = new Date(p.ts);
+    const dateStr = months[d.getMonth()] + ' ' + d.getFullYear();
+    const initials = p.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2);
+    const deleteBtn = isAdmin ? '<button onclick="deleteApprovedPost('' + p.firebaseKey + '')" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:1rem;color:var(--text-muted);opacity:0.5;" title="Delete post">&times;</button>' : '';
+    return '<div class="board-post" style="margin-top:1rem;">' +
+      '<div class="board-post-header">' +
+        '<div class="board-avatar">' + initials + '</div>' +
+        '<div class="board-post-meta"><div class="name">' + p.name + '</div><div class="date">' + dateStr + '</div></div>' +
+        '<span class="board-post-tag">' + p.type + '</span>' +
+        deleteBtn +
+      '</div>' +
+      '<p class="board-post-body">' + p.msg + '</p>' +
+    '</div>';
+  }).join('');
+}
+
+function renderPending(pending) {
+  pendingPosts = pending;
+  const container = document.getElementById('pending-posts');
+  const noMsg = document.getElementById('no-pending');
+  if (!container) return;
+  if (!pending.length) {
+    container.innerHTML = '';
+    if (noMsg) noMsg.style.display = 'block';
+    return;
+  }
+  if (noMsg) noMsg.style.display = 'none';
+  container.innerHTML = pending.map(p => {
+    return '<div style="background:var(--white);border:1px solid #f0d080;border-radius:2px;padding:1.25rem;margin-bottom:0.75rem;">' +
+      '<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;flex-wrap:wrap;">' +
+        '<strong style="font-size:0.95rem;">' + p.name + '</strong>' +
+        '<span style="font-size:0.7rem;background:#fff8e1;color:#8b6914;padding:0.2rem 0.5rem;border-radius:2px;">' + p.type + '</span>' +
+        '<div style="margin-left:auto;display:flex;gap:0.5rem;">' +
+          '<button onclick="approvePost('' + p.firebaseKey + '')" style="font-size:0.72rem;font-weight:500;padding:0.35rem 0.9rem;background:var(--green-fresh);color:white;border:none;border-radius:2px;cursor:pointer;">Approve</button>' +
+          '<button onclick="rejectPost('' + p.firebaseKey + '')" style="font-size:0.72rem;font-weight:500;padding:0.35rem 0.9rem;background:#c03030;color:white;border:none;border-radius:2px;cursor:pointer;">Reject</button>' +
+        '</div>' +
+      '</div>' +
+      '<p style="font-size:0.9rem;line-height:1.65;color:var(--text-mid);">' + p.msg + '</p>' +
+    '</div>';
+  }).join('');
 }
 
 // Expose functions to global scope for inline HTML onclick handlers
@@ -943,6 +1064,9 @@ window.deleteEntry = deleteEntry;
 window.checkAdmin = checkAdmin;
 window.toggleNewPost = toggleNewPost;
 window.submitBoardPost = submitBoardPost;
+window.approvePost = approvePost;
+window.rejectPost = rejectPost;
+window.deleteApprovedPost = deleteApprovedPost;
 </script>
 </body>
 </html>
