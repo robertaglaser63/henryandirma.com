@@ -288,6 +288,8 @@
     .map-embed iframe { width:100% !important; height:320px !important; display:block !important; }
     .lodging-intro { flex-direction:column; }
     .lodging-intro > div { width:100%; min-width:unset; }
+    .lodging-intro > div:first-child { order:2; }
+    .lodging-intro > div:last-child { order:1; }
     .form-row { grid-template-columns:1fr; }
     .hero-date-card { flex-direction:column; gap:0.5rem; }
     .hero-divider { width:40px; height:1px; }
@@ -465,7 +467,7 @@
     <p class="section-body">We've researched the best nearby hotels across a range of budgets, with June 6 prices. Honestly, World Cup proximity is pushing rates up — the Best Western in Fairfield at $140 is a genuine standout. All recommended hotels have a 7 of 10 rating or higher on Booking.com. Book soon! Click on the icons on the lodging map below to see details, including distance from our home and reservation links on Booking.com </p>
 
     <div class="lodging-intro" style="margin-top:2.5rem;">
-      <div style="order:2;">
+      <div>
         <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">In Montclair &amp; West Orange — Closest to the Reunion</p>
         <div class="lodging-list" style="margin-bottom:1.5rem;">
           <div class="lodging-item">
@@ -635,7 +637,7 @@
         </div>
       </div>
 
-      <div style="order:1;">
+      <div>
         <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.75rem;">Lodging Map</p>
         <div class="map-embed" style="width:100%;overflow:hidden;">
           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1R4aZ-Khl45bMUF1DNaSrs491Lm72_8A&ehbc=2E312F" title="Lodging options map" style="width:100%;height:380px;display:block;border:none;"></iframe>
