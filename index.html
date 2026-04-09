@@ -106,7 +106,8 @@
 
   /* LODGING */
   .lodging { background: var(--white); }
-  .lodging-intro { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-bottom:2rem; }
+  .lodging-intro { display:flex; flex-wrap:wrap; gap:3rem; align-items:start; margin-bottom:2rem; }
+  .lodging-intro > div { flex:1; min-width:300px; }
   .map-embed { border-radius:2px; overflow:hidden; border:1px solid var(--green-pale); }
   .map-embed iframe { display:block; width:100%; height:380px; border:none; min-height:300px; }
   .lodging-list { display:flex; flex-direction:column; }
@@ -285,7 +286,8 @@
     .story-grid, .info-grid, .neighborhood-grid, .lodging-intro, .poll-grid, .story-cards, .maps-grid { grid-template-columns:1fr; }
     .map-embed { width:100%; overflow:hidden; }
     .map-embed iframe { width:100% !important; height:320px !important; display:block !important; }
-    .lodging-intro > div { width:100%; }
+    .lodging-intro { flex-direction:column; }
+    .lodging-intro > div { width:100%; min-width:unset; }
     .form-row { grid-template-columns:1fr; }
     .hero-date-card { flex-direction:column; gap:0.5rem; }
     .hero-divider { width:40px; height:1px; }
@@ -463,7 +465,7 @@
     <p class="section-body">We've researched the best nearby hotels across a range of budgets, with June 6 prices. Honestly, World Cup proximity is pushing rates up — the Best Western in Fairfield at $140 is a genuine standout. All recommended hotels have a 7 of 10 rating or higher on Booking.com. Book soon! Click on the icons on the lodging map below to see details, including distance from our home and reservation links on Booking.com </p>
 
     <div class="lodging-intro" style="margin-top:2.5rem;">
-      <div>
+      <div style="order:2;">
         <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.5rem;">In Montclair &amp; West Orange — Closest to the Reunion</p>
         <div class="lodging-list" style="margin-bottom:1.5rem;">
           <div class="lodging-item">
@@ -633,7 +635,7 @@
         </div>
       </div>
 
-      <div>
+      <div style="order:1;">
         <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-fresh);margin-bottom:0.75rem;">Lodging Map</p>
         <div class="map-embed" style="width:100%;overflow:hidden;">
           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1R4aZ-Khl45bMUF1DNaSrs491Lm72_8A&ehbc=2E312F" title="Lodging options map" style="width:100%;height:380px;display:block;border:none;"></iframe>
