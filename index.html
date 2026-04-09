@@ -750,7 +750,7 @@
       <div>
         <p class="section-label">Community</p>
         <h2 class="section-title">Family <em>Bulletin Board</em></h2>
-        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. All posts are reviewed before appearing — usually within 24 hours.</p>
+        <p class="section-body">Post heirlooms you'd like to find a new home for, share memories, ask questions, or just say hello. Posts appear immediately — use the admin panel to remove anything if needed.</p>
       </div>
       <div style="flex-shrink:0;">
         <button class="btn-primary" onclick="toggleNewPost()">+ New Post</button>
@@ -772,7 +772,7 @@
     </div>
 
     <!-- Admin pending review panel — only visible when admin unlocked -->
-    <div id="pending-panel" style="display:none; margin-top:2rem;">
+    <div id="pending-panel" style="display:none !important; margin-top:2rem;">
       <div style="background:#fff8e1; border:1px solid #f0d080; border-radius:2px; padding:1.25rem 1.5rem; margin-bottom:1rem;">
         <p style="font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:#8b6914; margin-bottom:0.25rem;">Admin — Pending Posts</p>
         <p style="font-size:0.85rem; color:#7a5500;">Review submissions below and approve or reject each one.</p>
@@ -804,8 +804,8 @@
         <textarea id="board-msg" placeholder="Share a memory, post an heirloom, ask a question..."></textarea>
       </div>
       <button class="btn-primary" style="font-size:0.75rem;padding:0.65rem 1.5rem;" onclick="submitBoardPost()">Submit Post</button>
-      <p id="board-success" style="display:none; font-family:var(--serif); font-style:italic; color:var(--green-mid); margin-top:0.75rem;">Thank you! Your post has been submitted and will appear after review.</p>
-      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;">Posts are reviewed before publishing — usually within 24 hours.</p>
+      <p id="board-success" style="display:none; font-family:var(--serif); font-style:italic; color:var(--green-mid); margin-top:0.75rem;">Thank you! Your post has been added to the board.</p>
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;">Your post will appear on the board immediately.</p>
     </div>
   </div>
 </section>
@@ -978,7 +978,7 @@ async function submitBoardPost() {
   const type = document.getElementById('board-type').value;
   const msg  = document.getElementById('board-msg').value.trim();
   if (!name || !msg) { alert('Please enter your name and a message.'); return; }
-  await push(pendingRef, { name, type, msg, ts: Date.now() });
+  await push(postsRef, { name, type, msg, ts: Date.now() });
   document.getElementById('board-name').value = '';
   document.getElementById('board-msg').value = '';
   document.getElementById('board-success').style.display = 'block';
