@@ -442,13 +442,13 @@
         <div class="count-pill pill-maybe"><span class="num" id="cnt-maybe">0</span><span class="lbl">Maybe</span></div>
         <div class="count-pill pill-cant"><span class="num" id="cnt-cant">0</span><span class="lbl">Can't make it</span></div>
       </div>
-      <div class="admin-bar">
+      <div id="wall"></div>
+      <div class="admin-bar" style="margin-top:1.5rem;margin-bottom:0;">
         <label>Admin access:</label>
         <input type="password" id="admin-pw" placeholder="Password" onkeydown="if(event.key==='Enter')checkAdmin()">
         <button onclick="checkAdmin()">Unlock</button>
         <span class="admin-note" id="admin-status"></span>
       </div>
-      <div id="wall"></div>
     </div>
     <p class="rsvp-note">Questions? Email us at <a href="mailto:rglaser2@gmail.com" style="color:var(--green-mid);">rglaser2@gmail.com</a></p>
   </div>
