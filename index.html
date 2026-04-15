@@ -328,6 +328,7 @@
     <li><a href="#lodging">Lodging</a></li>
     <li><a href="#maps">Explore</a></li>
     <li><a href="#events">Events</a></li>
+    <li><a href="#polls">Polls</a></li>
     <li><a href="#stories">Family Stories</a></li>
     <li><a href="#bulletin">Board</a></li>
   </ul>
@@ -748,6 +749,7 @@
       <!-- POLL 1: Proteins -->
       <div class="poll-card">
         <h3 class="poll-question">🥩 Which proteins would you like to see? <span style="font-size:0.75rem;font-weight:300;font-style:italic;">(check all that apply)</span></h3>
+        <p style="font-size:0.8rem;color:var(--text-muted);font-style:italic;margin-bottom:1rem;">Just helping us plan — this is not a commitment to eat!</p>
         <div id="protein-options">
           <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Beef"> <span class="poll-option-label">Beef</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Beef" style="width:0%"></div></div><div class="poll-count" id="count-protein-Beef">0 votes</div></div>
           <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Chicken"> <span class="poll-option-label">Chicken</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Chicken" style="width:0%"></div></div><div class="poll-count" id="count-protein-Chicken">0 votes</div></div>
@@ -781,7 +783,7 @@
         <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6;">What sides or desserts would make your day? Everyone can see all the suggestions!</p>
         <div class="form-group" style="margin-bottom:0.75rem;">
           <label>Your suggestion</label>
-          <input type="text" id="writein-input" placeholder="e.g. Grandma Irma's potato salad...">
+          <input type="text" id="writein-input" placeholder="e.g. bread and butter pickles">
         </div>
         <div class="form-group" style="margin-bottom:1rem;">
           <label>Your name (optional)</label>
@@ -805,8 +807,8 @@
           <input type="text" id="song-artist" placeholder="e.g. Earth, Wind & Fire">
         </div>
         <div class="form-group" style="margin-bottom:1rem;">
-          <label>Why this song? <span style="font-weight:300;text-transform:none;">(optional)</span></label>
-          <input type="text" id="song-why" placeholder="e.g. Grandma always danced to this one">
+          <label>Your Name <span style="font-weight:300;text-transform:none;">(optional)</span></label>
+          <input type="text" id="song-why" placeholder="e.g. Cousin Maria">
         </div>
         <button class="poll-submit-btn" onclick="submitPlaylist()">Add to Playlist</button>
         <p class="poll-thankyou" id="ty-playlist">Added to the playlist! 🎶</p>
@@ -1021,7 +1023,7 @@ onValue(pollPlaylistRef, (snapshot) => {
       const d = child.val();
       const div = document.createElement('div');
       div.className = 'playlist-item';
-      div.innerHTML = '<span class="song">' + d.title + '</span> <span class="artist">— ' + d.artist + '</span>' + (d.why ? '<br><span class="why">"' + d.why + '"</span>' : '');
+      div.innerHTML = '<span class="song">' + d.title + '</span> <span class="artist">— ' + d.artist + '</span>' + (d.why ? ' <span class="why">· ' + d.why + '</span>' : '');
       list.appendChild(div);
     });
   }
