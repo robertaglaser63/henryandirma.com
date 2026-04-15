@@ -175,13 +175,13 @@
   .poll-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
   .poll-card { background:var(--white); padding:1.75rem; border-radius:2px; overflow:hidden; word-wrap:break-word; }
   .poll-question { font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; line-height:1.4; }
-  .poll-option { margin-bottom:0.85rem; width:100%; overflow:hidden; }
-  .poll-option-row { display:flex; align-items:flex-start; gap:0.6rem; cursor:pointer; width:100%; }
-  .poll-option-row input { width:16px; height:16px; accent-color:var(--green-fresh); cursor:pointer; flex-shrink:0; margin-top:3px; }
-  .poll-option-label { font-size:0.92rem; color:var(--text-dark); cursor:pointer; line-height:1.4; flex:1; word-wrap:break-word; }
-  .poll-bar-wrap { height:6px; background:var(--green-mist); border-radius:3px; margin-top:5px; margin-left:22px; overflow:hidden; width:calc(100% - 22px); }
+  .poll-option { margin-bottom:1rem; width:100%; }
+  .poll-option-label-row { display:grid; grid-template-columns:20px 1fr; gap:8px; align-items:start; cursor:pointer; margin-bottom:4px; }
+  .poll-option-label-row input { width:16px; height:16px; accent-color:var(--green-fresh); cursor:pointer; margin-top:2px; }
+  .poll-option-label { font-size:0.92rem; color:var(--text-dark); cursor:pointer; line-height:1.4; }
+  .poll-bar-wrap { height:6px; background:var(--green-mist); border-radius:3px; margin-left:28px; overflow:hidden; }
   .poll-bar { height:100%; background:var(--green-fresh); border-radius:3px; transition:width 0.4s ease; }
-  .poll-count { font-size:0.72rem; color:var(--text-muted); margin-left:22px; margin-top:2px; }
+  .poll-count { font-size:0.72rem; color:var(--text-muted); margin-left:28px; margin-top:2px; }
   .poll-submit-btn { margin-top:1.25rem; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:0.55rem 1.4rem; background:var(--green-fresh); color:white; border:none; border-radius:2px; cursor:pointer; transition:background 0.2s; }
   .poll-submit-btn:hover { background:var(--green-mid); }
   .poll-submit-btn:disabled { background:var(--green-pale); cursor:default; }
@@ -749,12 +749,12 @@
       <div class="poll-card">
         <h3 class="poll-question">🥩 Which proteins would you like to see? <span style="font-size:0.75rem;font-weight:300;font-style:italic;">(check all that apply)</span></h3>
         <div id="protein-options">
-          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Beef"> <span class="poll-option-label">Beef</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Beef" style="width:0%"></div></div><div class="poll-count" id="count-protein-Beef">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Chicken"> <span class="poll-option-label">Chicken</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Chicken" style="width:0%"></div></div><div class="poll-count" id="count-protein-Chicken">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Fish / Seafood"> <span class="poll-option-label">Fish / Seafood</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Fish" style="width:0%"></div></div><div class="poll-count" id="count-protein-Fish">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Lamb"> <span class="poll-option-label">Lamb</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Lamb" style="width:0%"></div></div><div class="poll-count" id="count-protein-Lamb">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Veggie / Plant-based"> <span class="poll-option-label">Veggie / Plant-based</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Veggie" style="width:0%"></div></div><div class="poll-count" id="count-protein-Veggie">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="I eat everything"> <span class="poll-option-label">I eat everything!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Everything" style="width:0%"></div></div><div class="poll-count" id="count-protein-Everything">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Beef"> <span class="poll-option-label">Beef</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Beef" style="width:0%"></div></div><div class="poll-count" id="count-protein-Beef">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Chicken"> <span class="poll-option-label">Chicken</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Chicken" style="width:0%"></div></div><div class="poll-count" id="count-protein-Chicken">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Fish / Seafood"> <span class="poll-option-label">Fish / Seafood</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Fish" style="width:0%"></div></div><div class="poll-count" id="count-protein-Fish">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Lamb"> <span class="poll-option-label">Lamb</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Lamb" style="width:0%"></div></div><div class="poll-count" id="count-protein-Lamb">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="Veggie / Plant-based"> <span class="poll-option-label">Veggie / Plant-based</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Veggie" style="width:0%"></div></div><div class="poll-count" id="count-protein-Veggie">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="checkbox" name="protein" value="I eat everything"> <span class="poll-option-label">I eat everything!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Everything" style="width:0%"></div></div><div class="poll-count" id="count-protein-Everything">0 votes</div></div>
         </div>
         <button class="poll-submit-btn" onclick="submitProtein()">Submit</button>
         <p class="poll-thankyou" id="ty-protein">Thanks! Your preferences are saved. 🌿</p>
@@ -765,10 +765,10 @@
       <div class="poll-card">
         <h3 class="poll-question">🌶️ How do you feel about spicy food?</h3>
         <div id="spice-options">
-          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Mild please"> <span class="poll-option-label">Mild please</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Mild" style="width:0%"></div></div><div class="poll-count" id="count-spice-Mild">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Medium"> <span class="poll-option-label">Medium — a little kick is good</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Medium" style="width:0%"></div></div><div class="poll-count" id="count-spice-Medium">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Spicy"> <span class="poll-option-label">Spicy — bring it on!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Spicy" style="width:0%"></div></div><div class="poll-count" id="count-spice-Spicy">0 votes</div></div>
-          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Try anything"> <span class="poll-option-label">I'll try anything once!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Try" style="width:0%"></div></div><div class="poll-count" id="count-spice-Try">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="radio" name="spice" value="Mild please"> <span class="poll-option-label">Mild please</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Mild" style="width:0%"></div></div><div class="poll-count" id="count-spice-Mild">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="radio" name="spice" value="Medium"> <span class="poll-option-label">Medium — a little kick is good</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Medium" style="width:0%"></div></div><div class="poll-count" id="count-spice-Medium">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="radio" name="spice" value="Spicy"> <span class="poll-option-label">Spicy — bring it on!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Spicy" style="width:0%"></div></div><div class="poll-count" id="count-spice-Spicy">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-label-row"><input type="radio" name="spice" value="Try anything"> <span class="poll-option-label">I'll try anything once!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Try" style="width:0%"></div></div><div class="poll-count" id="count-spice-Try">0 votes</div></div>
         </div>
         <button class="poll-submit-btn" onclick="submitSpice()">Submit</button>
         <p class="poll-thankyou" id="ty-spice">Thanks! Your preference is saved. 🌿</p>
