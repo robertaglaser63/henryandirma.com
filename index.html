@@ -42,6 +42,11 @@
   .nav-links a { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-pale); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
   .nav-links a:hover { opacity: 1; }
 
+  /* ANNOUNCEMENT BANNER */
+  .site-banner { display:none; background:var(--green-mid); color:var(--white); text-align:center; padding:0.6rem 2rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; position:relative; z-index:99; }
+  .site-banner a { color:var(--green-pale); text-decoration:underline; }
+  .site-banner.visible { display:block; }
+
   /* HERO */
   .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--green-deep); }
   .hero-bg {
@@ -169,13 +174,26 @@
   .polls { background:var(--green-mist); }
   .poll-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
   .poll-card { background:var(--white); padding:1.75rem; border-radius:2px; overflow:hidden; word-wrap:break-word; }
-  .poll-question { font-family:var(--serif); font-size:1.05rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; line-height:1.4; }
-  .poll-option { margin-bottom:0.85rem; }
-  .poll-option-row { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.3rem; cursor:pointer; }
-  .poll-option-row input { width:auto; accent-color:var(--green-fresh); cursor:pointer; }
-  .poll-option-label { font-size:0.95rem; color:var(--text-dark); cursor:pointer; line-height:1.4; }
-  .poll-bar-wrap { height:4px; background:var(--green-mist); border-radius:2px; margin-left:1.5rem; overflow:hidden; }
-  .poll-bar { height:100%; background:var(--green-fresh); border-radius:2px; }
+  .poll-question { font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; line-height:1.4; }
+  .poll-option { margin-bottom:0.75rem; }
+  .poll-option-row { display:flex; align-items:center; gap:0.75rem; cursor:pointer; }
+  .poll-option-row input { width:auto; accent-color:var(--green-fresh); cursor:pointer; flex-shrink:0; margin-top:2px; }
+  .poll-option-label { font-size:0.92rem; color:var(--text-dark); cursor:pointer; line-height:1.4; }
+  .poll-bar-wrap { height:6px; background:var(--green-mist); border-radius:3px; margin-top:4px; margin-left:1.6rem; overflow:hidden; }
+  .poll-bar { height:100%; background:var(--green-fresh); border-radius:3px; transition:width 0.4s ease; }
+  .poll-count { font-size:0.72rem; color:var(--text-muted); margin-left:1.6rem; margin-top:2px; }
+  .poll-submit-btn { margin-top:1.25rem; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:0.55rem 1.4rem; background:var(--green-fresh); color:white; border:none; border-radius:2px; cursor:pointer; transition:background 0.2s; }
+  .poll-submit-btn:hover { background:var(--green-mid); }
+  .poll-submit-btn:disabled { background:var(--green-pale); cursor:default; }
+  .poll-thankyou { display:none; font-family:var(--serif); font-style:italic; font-size:0.9rem; color:var(--green-mid); margin-top:0.75rem; }
+  .poll-total { font-size:0.72rem; color:var(--text-muted); margin-top:1rem; font-style:italic; }
+  .playlist-list { margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem; max-height:220px; overflow-y:auto; }
+  .playlist-item { background:var(--green-mist); border-radius:2px; padding:0.6rem 0.85rem; font-size:0.85rem; color:var(--text-dark); line-height:1.4; }
+  .playlist-item .song { font-weight:500; }
+  .playlist-item .artist { color:var(--text-muted); font-size:0.78rem; }
+  .playlist-item .why { color:var(--text-muted); font-size:0.78rem; font-style:italic; }
+  .writein-list { margin-top:0.75rem; display:flex; flex-direction:column; gap:0.4rem; max-height:180px; overflow-y:auto; }
+  .writein-item { background:var(--green-mist); border-radius:2px; padding:0.5rem 0.85rem; font-size:0.85rem; color:var(--text-dark); }
 
   /* STORIES */
   .stories { background:var(--white); }
@@ -283,6 +301,7 @@
     .nav-links { gap:0.75rem; }
     section { padding:4rem 1.5rem; }
     .story-grid, .info-grid, .neighborhood-grid, .poll-grid, .story-cards, .maps-grid { grid-template-columns:1fr; }
+    .poll-card { margin-bottom:0.5rem; }
     .map-embed { width:100%; overflow:hidden; }
     .map-embed iframe { width:100% !important; height:320px !important; display:block !important; }
     .lodging-intro > div { width:100%; }
@@ -313,6 +332,9 @@
     <li><a href="#bulletin">Board</a></li>
   </ul>
 </nav>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="site-banner" id="site-banner"></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -719,10 +741,78 @@
   <div class="section-inner">
     <p class="section-label">Have Your Say</p>
     <h2 class="section-title">Help Us <em>Plan</em></h2>
-    <p class="section-body">We'll be adding interactive polls here soon — for food preferences, playlist suggestions, and more. Check back in the coming days!</p>
-    <div style="margin-top:2rem; background:var(--white); border-radius:2px; border-left:3px solid var(--green-light); padding:2rem 2rem;">
-      <p style="font-family:var(--serif); font-size:1.3rem; font-weight:400; font-style:italic; color:var(--green-mid); margin-bottom:0.75rem;">Coming Soon</p>
-      <p style="font-size:1rem; line-height:1.8; color:var(--text-dark);">In the meantime, email us directly at <a href="mailto:rglaser2@gmail.com" style="color:var(--green-mid);">rglaser2@gmail.com</a> with your food requests, song suggestions, or anything else you'd like us to know. We'd love to hear from you!</p>
+    <p class="section-body">Tell us what you'd like — your answers will shape the day! Results update live as cousins respond.</p>
+
+    <div class="poll-grid">
+
+      <!-- POLL 1: Proteins -->
+      <div class="poll-card">
+        <h3 class="poll-question">🥩 Which proteins would you like to see? <span style="font-size:0.75rem;font-weight:300;font-style:italic;">(check all that apply)</span></h3>
+        <div id="protein-options">
+          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Beef"> <span class="poll-option-label">Beef</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Beef" style="width:0%"></div></div><div class="poll-count" id="count-protein-Beef">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Chicken"> <span class="poll-option-label">Chicken</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Chicken" style="width:0%"></div></div><div class="poll-count" id="count-protein-Chicken">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Fish / Seafood"> <span class="poll-option-label">Fish / Seafood</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Fish" style="width:0%"></div></div><div class="poll-count" id="count-protein-Fish">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Lamb"> <span class="poll-option-label">Lamb</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Lamb" style="width:0%"></div></div><div class="poll-count" id="count-protein-Lamb">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="Veggie / Plant-based"> <span class="poll-option-label">Veggie / Plant-based</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Veggie" style="width:0%"></div></div><div class="poll-count" id="count-protein-Veggie">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="checkbox" name="protein" value="I eat everything"> <span class="poll-option-label">I eat everything!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-protein-Everything" style="width:0%"></div></div><div class="poll-count" id="count-protein-Everything">0 votes</div></div>
+        </div>
+        <button class="poll-submit-btn" onclick="submitProtein()">Submit</button>
+        <p class="poll-thankyou" id="ty-protein">Thanks! Your preferences are saved. 🌿</p>
+        <p class="poll-total" id="total-protein"></p>
+      </div>
+
+      <!-- POLL 2: Spice -->
+      <div class="poll-card">
+        <h3 class="poll-question">🌶️ How do you feel about spicy food?</h3>
+        <div id="spice-options">
+          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Mild please"> <span class="poll-option-label">Mild please</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Mild" style="width:0%"></div></div><div class="poll-count" id="count-spice-Mild">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Medium"> <span class="poll-option-label">Medium — a little kick is good</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Medium" style="width:0%"></div></div><div class="poll-count" id="count-spice-Medium">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Spicy"> <span class="poll-option-label">Spicy — bring it on!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Spicy" style="width:0%"></div></div><div class="poll-count" id="count-spice-Spicy">0 votes</div></div>
+          <div class="poll-option"><label class="poll-option-row"><input type="radio" name="spice" value="Try anything"> <span class="poll-option-label">I'll try anything once!</span></label><div class="poll-bar-wrap"><div class="poll-bar" id="bar-spice-Try" style="width:0%"></div></div><div class="poll-count" id="count-spice-Try">0 votes</div></div>
+        </div>
+        <button class="poll-submit-btn" onclick="submitSpice()">Submit</button>
+        <p class="poll-thankyou" id="ty-spice">Thanks! Your preference is saved. 🌿</p>
+        <p class="poll-total" id="total-spice"></p>
+      </div>
+
+      <!-- POLL 3: Sides & Desserts write-in -->
+      <div class="poll-card">
+        <h3 class="poll-question">🥗 Suggest a side dish or dessert!</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6;">What sides or desserts would make your day? Everyone can see all the suggestions!</p>
+        <div class="form-group" style="margin-bottom:0.75rem;">
+          <label>Your suggestion</label>
+          <input type="text" id="writein-input" placeholder="e.g. Grandma Irma's potato salad...">
+        </div>
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label>Your name (optional)</label>
+          <input type="text" id="writein-name" placeholder="Your name">
+        </div>
+        <button class="poll-submit-btn" onclick="submitWritein()">Add Suggestion</button>
+        <p class="poll-thankyou" id="ty-writein">Added! 🌿</p>
+        <div class="writein-list" id="writein-list"></div>
+      </div>
+
+      <!-- POLL 4: Playlist -->
+      <div class="poll-card">
+        <h3 class="poll-question">🎵 Suggest a song for the reunion playlist!</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6;">What song takes you back to family memories? We're building the soundtrack for the day.</p>
+        <div class="form-group" style="margin-bottom:0.75rem;">
+          <label>Song title</label>
+          <input type="text" id="song-title" placeholder="e.g. September">
+        </div>
+        <div class="form-group" style="margin-bottom:0.75rem;">
+          <label>Artist</label>
+          <input type="text" id="song-artist" placeholder="e.g. Earth, Wind & Fire">
+        </div>
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label>Why this song? <span style="font-weight:300;text-transform:none;">(optional)</span></label>
+          <input type="text" id="song-why" placeholder="e.g. Grandma always danced to this one">
+        </div>
+        <button class="poll-submit-btn" onclick="submitPlaylist()">Add to Playlist</button>
+        <p class="poll-thankyou" id="ty-playlist">Added to the playlist! 🎶</p>
+        <div class="playlist-list" id="playlist-list"></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -843,6 +933,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const rsvpRef = ref(db, 'rsvps');
+const bannerRef = ref(db, 'banner');
+const pollProteinRef = ref(db, 'poll_protein');
+const pollSpiceRef = ref(db, 'poll_spice');
+const pollWriteinRef = ref(db, 'poll_writein');
+const pollPlaylistRef = ref(db, 'poll_playlist');
 const postsRef = ref(db, 'approved_posts');
 const pendingRef = ref(db, 'pending_posts');
 
@@ -870,6 +965,66 @@ onValue(postsRef, (snapshot) => {
     });
   }
   renderBoard(posts);
+});
+
+// Listen for announcement banner
+onValue(bannerRef, (snapshot) => {
+  const bannerEl = document.getElementById('site-banner');
+  if (!bannerEl) return;
+  const msg = snapshot.val();
+  if (msg && msg.trim()) {
+    bannerEl.innerHTML = msg;
+    bannerEl.classList.add('visible');
+  } else {
+    bannerEl.innerHTML = '';
+    bannerEl.classList.remove('visible');
+  }
+});
+
+// Listen for protein poll
+onValue(pollProteinRef, (snapshot) => {
+  const votes = {};
+  if (snapshot.exists()) snapshot.forEach(child => { const v = child.val(); if (votes[v]) votes[v]++; else votes[v] = 1; });
+  updateBarPoll('protein', votes, ['Beef','Chicken','Fish','Lamb','Veggie','Everything']);
+});
+
+// Listen for spice poll
+onValue(pollSpiceRef, (snapshot) => {
+  const votes = {};
+  if (snapshot.exists()) snapshot.forEach(child => { const v = child.val(); if (votes[v]) votes[v]++; else votes[v] = 1; });
+  updateBarPoll('spice', votes, ['Mild','Medium','Spicy','Try']);
+});
+
+// Listen for write-in suggestions
+onValue(pollWriteinRef, (snapshot) => {
+  const list = document.getElementById('writein-list');
+  if (!list) return;
+  list.innerHTML = '';
+  if (snapshot.exists()) {
+    snapshot.forEach(child => {
+      const d = child.val();
+      const div = document.createElement('div');
+      div.className = 'writein-item';
+      div.textContent = d.suggestion + (d.name ? ' — ' + d.name : '');
+      list.appendChild(div);
+    });
+  }
+});
+
+// Listen for playlist suggestions
+onValue(pollPlaylistRef, (snapshot) => {
+  const list = document.getElementById('playlist-list');
+  if (!list) return;
+  list.innerHTML = '';
+  if (snapshot.exists()) {
+    snapshot.forEach(child => {
+      const d = child.val();
+      const div = document.createElement('div');
+      div.className = 'playlist-item';
+      div.innerHTML = '<span class="song">' + d.title + '</span> <span class="artist">— ' + d.artist + '</span>' + (d.why ? '<br><span class="why">"' + d.why + '"</span>' : '');
+      list.appendChild(div);
+    });
+  }
 });
 
 // Listen for pending posts (admin only)
@@ -1086,6 +1241,68 @@ function renderPending(pending) {
   });
 }
 
+// ── POLL FUNCTIONS ──
+const proteinKeyMap = {'Beef':'Beef','Chicken':'Chicken','Fish / Seafood':'Fish','Lamb':'Lamb','Veggie / Plant-based':'Veggie','I eat everything':'Everything'};
+const spiceKeyMap = {'Mild please':'Mild','Medium':'Medium','Spicy':'Spicy','Try anything':'Try'};
+
+function updateBarPoll(pollName, votes, keys) {
+  const total = Object.values(votes).reduce((a,b) => a+b, 0);
+  keys.forEach(key => {
+    const count = votes[key] || 0;
+    const pct = total ? Math.round((count/total)*100) : 0;
+    const bar = document.getElementById('bar-' + pollName + '-' + key);
+    const cnt = document.getElementById('count-' + pollName + '-' + key);
+    if (bar) bar.style.width = pct + '%';
+    if (cnt) cnt.textContent = count + ' vote' + (count !== 1 ? 's' : '') + (total ? ' (' + pct + '%)' : '');
+  });
+  const totalEl = document.getElementById('total-' + pollName);
+  if (totalEl) totalEl.textContent = total + ' response' + (total !== 1 ? 's' : '') + ' so far';
+}
+
+async function submitProtein() {
+  const checked = [...document.querySelectorAll('input[name="protein"]:checked')].map(i => i.value);
+  if (!checked.length) { alert('Please select at least one option.'); return; }
+  for (const val of checked) await push(pollProteinRef, val);
+  document.getElementById('ty-protein').style.display = 'block';
+  document.querySelectorAll('input[name="protein"]').forEach(i => i.disabled = true);
+  document.querySelector('button[onclick="submitProtein()"]').disabled = true;
+}
+
+async function submitSpice() {
+  const checked = document.querySelector('input[name="spice"]:checked');
+  if (!checked) { alert('Please select an option.'); return; }
+  await push(pollSpiceRef, checked.value);
+  document.getElementById('ty-spice').style.display = 'block';
+  document.querySelectorAll('input[name="spice"]').forEach(i => i.disabled = true);
+  document.querySelector('button[onclick="submitSpice()"]').disabled = true;
+}
+
+async function submitWritein() {
+  const suggestion = document.getElementById('writein-input').value.trim();
+  const name = document.getElementById('writein-name').value.trim();
+  if (!suggestion) { alert('Please enter a suggestion.'); return; }
+  await push(pollWriteinRef, { suggestion, name, ts: Date.now() });
+  document.getElementById('writein-input').value = '';
+  document.getElementById('writein-name').value = '';
+  const ty = document.getElementById('ty-writein');
+  ty.style.display = 'block';
+  setTimeout(() => ty.style.display = 'none', 2500);
+}
+
+async function submitPlaylist() {
+  const title = document.getElementById('song-title').value.trim();
+  const artist = document.getElementById('song-artist').value.trim();
+  const why = document.getElementById('song-why').value.trim();
+  if (!title || !artist) { alert('Please enter a song title and artist.'); return; }
+  await push(pollPlaylistRef, { title, artist, why, ts: Date.now() });
+  document.getElementById('song-title').value = '';
+  document.getElementById('song-artist').value = '';
+  document.getElementById('song-why').value = '';
+  const ty = document.getElementById('ty-playlist');
+  ty.style.display = 'block';
+  setTimeout(() => ty.style.display = 'none', 2500);
+}
+
 // Expose functions to global scope for inline HTML onclick handlers
 window.addRow = addRow;
 window.removeRow = removeRow;
@@ -1098,6 +1315,10 @@ window.submitBoardPost = submitBoardPost;
 window.approvePost = approvePost;
 window.rejectPost = rejectPost;
 window.deleteApprovedPost = deleteApprovedPost;
+window.submitProtein = submitProtein;
+window.submitSpice = submitSpice;
+window.submitWritein = submitWritein;
+window.submitPlaylist = submitPlaylist;
 </script>
 </body>
 </html>
