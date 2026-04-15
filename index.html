@@ -175,13 +175,13 @@
   .poll-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
   .poll-card { background:var(--white); padding:1.75rem; border-radius:2px; overflow:hidden; word-wrap:break-word; }
   .poll-question { font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--green-deep); margin-bottom:1.25rem; line-height:1.4; }
-  .poll-option { margin-bottom:0.75rem; }
-  .poll-option-row { display:flex; align-items:center; gap:0.75rem; cursor:pointer; }
-  .poll-option-row input { width:auto; accent-color:var(--green-fresh); cursor:pointer; flex-shrink:0; margin-top:2px; }
-  .poll-option-label { font-size:0.92rem; color:var(--text-dark); cursor:pointer; line-height:1.4; }
-  .poll-bar-wrap { height:6px; background:var(--green-mist); border-radius:3px; margin-top:4px; margin-left:1.6rem; overflow:hidden; }
+  .poll-option { margin-bottom:0.85rem; width:100%; overflow:hidden; }
+  .poll-option-row { display:flex; align-items:flex-start; gap:0.6rem; cursor:pointer; width:100%; }
+  .poll-option-row input { width:16px; height:16px; accent-color:var(--green-fresh); cursor:pointer; flex-shrink:0; margin-top:3px; }
+  .poll-option-label { font-size:0.92rem; color:var(--text-dark); cursor:pointer; line-height:1.4; flex:1; word-wrap:break-word; }
+  .poll-bar-wrap { height:6px; background:var(--green-mist); border-radius:3px; margin-top:5px; margin-left:22px; overflow:hidden; width:calc(100% - 22px); }
   .poll-bar { height:100%; background:var(--green-fresh); border-radius:3px; transition:width 0.4s ease; }
-  .poll-count { font-size:0.72rem; color:var(--text-muted); margin-left:1.6rem; margin-top:2px; }
+  .poll-count { font-size:0.72rem; color:var(--text-muted); margin-left:22px; margin-top:2px; }
   .poll-submit-btn { margin-top:1.25rem; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:0.55rem 1.4rem; background:var(--green-fresh); color:white; border:none; border-radius:2px; cursor:pointer; transition:background 0.2s; }
   .poll-submit-btn:hover { background:var(--green-mid); }
   .poll-submit-btn:disabled { background:var(--green-pale); cursor:default; }
