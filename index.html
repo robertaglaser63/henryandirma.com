@@ -1262,19 +1262,22 @@ function updateBarPoll(pollName, votes, keys) {
 async function submitProtein() {
   const checked = [...document.querySelectorAll('input[name="protein"]:checked')].map(i => i.value);
   if (!checked.length) { alert('Please select at least one option.'); return; }
-  for (const val of checked) await push(pollProteinRef, val);
-  document.getElementById('ty-protein').style.display = 'block';
-  document.querySelectorAll('input[name="protein"]').forEach(i => i.disabled = true);
-  document.querySelector('button[onclick="submitProtein()"]').disabled = true;
+  const promises = checked.map(val => push(pollProteinRef, val));
+  await Promise.all(promises);
+  document.querySelectorAll('input[name="protein"]').forEach(i => i.checked = false);
+  const ty = document.getElementById('ty-protein');
+  ty.style.display = 'block';
+  setTimeout(() => ty.style.display = 'none', 2500);
 }
 
 async function submitSpice() {
   const checked = document.querySelector('input[name="spice"]:checked');
   if (!checked) { alert('Please select an option.'); return; }
   await push(pollSpiceRef, checked.value);
-  document.getElementById('ty-spice').style.display = 'block';
-  document.querySelectorAll('input[name="spice"]').forEach(i => i.disabled = true);
-  document.querySelector('button[onclick="submitSpice()"]').disabled = true;
+  document.querySelectorAll('input[name="spice"]').forEach(i => i.checked = false);
+  const ty = document.getElementById('ty-spice');
+  ty.style.display = 'block';
+  setTimeout(() => ty.style.display = 'none', 2500);
 }
 
 async function submitWritein() {
