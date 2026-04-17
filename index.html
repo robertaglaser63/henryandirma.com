@@ -43,7 +43,7 @@
   .nav-links a:hover { opacity: 1; }
 
   /* ANNOUNCEMENT BANNER */
-  .site-banner { display:none; background:var(--green-mid); color:var(--white); text-align:center; padding:0.6rem 2rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; position:fixed; top:62px; left:0; right:0; z-index:99; }
+  .site-banner { display:none; background:var(--green-mid); color:var(--white); text-align:center; padding:0.6rem 1.25rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; position:fixed; top:62px; left:0; right:0; z-index:99; white-space:normal; word-wrap:break-word; line-height:1.5; }
   .site-banner a { color:var(--green-pale); text-decoration:underline; }
   .site-banner.visible { display:block; }
 
@@ -988,7 +988,7 @@ onValue(bannerRef, (snapshot) => {
   if (msg && msg.trim()) {
     bannerEl.innerHTML = msg;
     bannerEl.classList.add('visible');
-    document.body.style.paddingTop = '34px';
+    document.body.style.paddingTop = '0px';
   } else {
     bannerEl.innerHTML = '';
     bannerEl.classList.remove('visible');
@@ -1365,4 +1365,3 @@ window.clearBanner = clearBanner;
 </script>
 </body>
 </html>
-
