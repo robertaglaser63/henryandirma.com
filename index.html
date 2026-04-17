@@ -78,7 +78,7 @@
   @keyframes scrollPulse { 0%,100%{opacity:0.4;} 50%{opacity:0.9;} }
 
   /* SECTION SHELL */
-  section { padding: 6rem 3rem; }
+  section { padding: 6rem 3rem; scroll-margin-top: 100px; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-fresh); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-label::after { content:''; flex:1; max-width:3rem; height:1px; background:var(--green-light); opacity:0.5; }
@@ -339,7 +339,7 @@
 <div class="site-banner" id="site-banner"></div>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" style="scroll-margin-top:100px;">
   <div class="hero-bg"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">White Family Reunion 2026 &nbsp;·&nbsp; Upper Montclair, New Jersey</p>
@@ -989,14 +989,24 @@ onValue(bannerRef, (snapshot) => {
   if (msg && msg.trim()) {
     bannerEl.innerHTML = msg;
     bannerEl.classList.add('visible');
-    setTimeout(() => {
-      const h = bannerEl.offsetHeight;
-      document.body.style.paddingTop = h + 'px';
-    }, 100);
+    // Wait for render then measure full banner height
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const h = bannerEl.offsetHeight;
+        document.body.style.paddingTop = h + 'px';
+        // Update scroll margins dynamically
+        document.querySelectorAll('section, .hero').forEach(el => {
+          el.style.scrollMarginTop = (h + 66) + 'px';
+        });
+      });
+    });
   } else {
     bannerEl.innerHTML = '';
     bannerEl.classList.remove('visible');
     document.body.style.paddingTop = '0px';
+    document.querySelectorAll('section, .hero').forEach(el => {
+      el.style.scrollMarginTop = '80px';
+    });
   }
   // Pre-fill the editor with current value
   const input = document.getElementById('banner-input');
