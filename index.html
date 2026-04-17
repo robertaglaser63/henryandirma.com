@@ -43,7 +43,7 @@
   .nav-links a:hover { opacity: 1; }
 
   /* ANNOUNCEMENT BANNER */
-  .site-banner { display:none; background:var(--green-mid); color:var(--white); text-align:center; padding:0.6rem 1.25rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; position:fixed; top:62px; left:0; right:0; z-index:99; white-space:normal; word-wrap:break-word; line-height:1.5; }
+  .site-banner { display:none; background:#7a1c2e; color:var(--white); text-align:center; padding:0.6rem 1.25rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; position:fixed; top:62px; left:0; right:0; z-index:99; white-space:normal; word-wrap:break-word; line-height:1.5; min-height:34px; height:auto; overflow:visible; }
   .site-banner a { color:var(--green-pale); text-decoration:underline; }
   .site-banner.visible { display:block; }
 
@@ -988,11 +988,14 @@ onValue(bannerRef, (snapshot) => {
   if (msg && msg.trim()) {
     bannerEl.innerHTML = msg;
     bannerEl.classList.add('visible');
-    document.body.style.paddingTop = '0px';
+    setTimeout(() => {
+      const h = bannerEl.offsetHeight;
+      document.body.style.paddingTop = h + 'px';
+    }, 50);
   } else {
     bannerEl.innerHTML = '';
     bannerEl.classList.remove('visible');
-    document.body.style.paddingTop = '0';
+    document.body.style.paddingTop = '0px';
   }
   // Pre-fill the editor with current value
   const input = document.getElementById('banner-input');
