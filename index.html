@@ -43,12 +43,12 @@
   .nav-links a:hover { opacity: 1; }
 
   /* ANNOUNCEMENT BANNER */
-  .site-banner { display:none; background:#7a1c2e; color:var(--white); text-align:center; padding:0.75rem 1.25rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; width:100%; white-space:normal; word-wrap:break-word; line-height:1.6; box-sizing:border-box; }
+  .site-banner { display:none; background:#7a1c2e; color:var(--white); text-align:center; padding:0.75rem 1.25rem; font-family:var(--sans); font-size:0.85rem; font-weight:400; letter-spacing:0.04em; width:100%; white-space:normal; word-wrap:break-word; line-height:1.6; box-sizing:border-box; margin-top:70px; }
   .site-banner a { color:var(--green-pale); text-decoration:underline; }
   .site-banner.visible { display:block; }
 
   /* HERO */
-  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--green-deep); padding-top: 70px; }
+  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--green-deep); }
   .hero-bg {
     position: absolute; inset: 0;
     background: radial-gradient(ellipse at 30% 60%, rgba(74,140,84,0.18) 0%, transparent 60%),
@@ -317,7 +317,7 @@
   @media (max-width:900px) {
     body { font-size:16px; color:#1a3d1f; }
     nav { padding:1rem 1.5rem; }
-    .site-banner { font-size:0.82rem; }
+    .site-banner { font-size:0.82rem; margin-top:58px; }
     .nav-links { gap:0.75rem; }
     section { padding:4rem 1.5rem; }
     .story-grid, .info-grid, .neighborhood-grid, .poll-grid, .story-cards, .maps-grid { grid-template-columns:1fr; }
