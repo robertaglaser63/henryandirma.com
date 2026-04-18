@@ -1482,7 +1482,7 @@ async function expressInterest(eventKey, btnEl) {
     hamilton: interestHamiltonRef,
     cemetery: interestCemeteryRef
   };
-  const name = prompt('What is your name? (so we know who to expect!)');
+  const name = prompt('Just your name so Roberta can follow up — no commitment at all!');
   if (!name || !name.trim()) return;
   await push(refs[eventKey], { name: name.trim(), ts: Date.now() });
   btnEl.textContent = 'Interested! ✓';
