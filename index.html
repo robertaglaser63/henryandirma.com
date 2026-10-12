@@ -1247,7 +1247,7 @@ function checkAdmin() {
 function chips(list, cls) {
   if (!list.length) return '<span class="empty-state">None yet</span>';
   return '<div class="name-grid">' + list.map(r =>
-    '<div class="name-chip ' + cls + '"><span class="chip-name">' + (r.full || 'Anonymous') + '</span><button class="delete-x" onclick="deleteEntry(\'' + r.id + '\')" title="Remove">&times;</button></div>'
+    '<div class="name-chip ' + cls + '"><span class="chip-name">' + (r.full || 'Anonymous') + '</span><button class="delete-x" onclick="deleteEntry(\'' + r.firebaseKey + '\')" title="Remove">&times;</button></div>'
   ).join('') + '</div>';
 }
 
